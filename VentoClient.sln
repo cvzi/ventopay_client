@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.3.32901.215
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VentoClient", "VentoClient.csproj", "{7756EE85-A98C-45A4-A7DF-5BA4E4C6A18D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7756EE85-A98C-45A4-A7DF-5BA4E4C6A18D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7756EE85-A98C-45A4-A7DF-5BA4E4C6A18D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7756EE85-A98C-45A4-A7DF-5BA4E4C6A18D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7756EE85-A98C-45A4-A7DF-5BA4E4C6A18D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {8A49B549-AEF8-4E5F-B334-BBD5F670D2F9}
+	EndGlobalSection
+EndGlobal

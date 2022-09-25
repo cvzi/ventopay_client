@@ -1,0 +1,2377 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions name="ventopayappservice" targetNamespace="http://tempuri.org/"
+    xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/"
+    xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd"
+    xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+    xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"
+    xmlns:tns="http://tempuri.org/"
+    xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing"
+    xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex"
+    xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy"
+    xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl"
+    xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract"
+    xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy"
+    xmlns:wsa10="http://www.w3.org/2005/08/addressing"
+    xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata">
+    <wsp:Policy wsu:Id="WSHttpBinding_IVentopayMobileService_policy">
+        <wsp:ExactlyOne>
+            <wsp:All>
+                <sp:TransportBinding xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+                    <wsp:Policy>
+                        <sp:TransportToken>
+                            <wsp:Policy>
+                                <sp:HttpsToken RequireClientCertificate="true"/>
+                            </wsp:Policy>
+                        </sp:TransportToken>
+                        <sp:AlgorithmSuite>
+                            <wsp:Policy>
+                                <sp:Basic256/>
+                            </wsp:Policy>
+                        </sp:AlgorithmSuite>
+                        <sp:Layout>
+                            <wsp:Policy>
+                                <sp:Strict/>
+                            </wsp:Policy>
+                        </sp:Layout>
+                    </wsp:Policy>
+                </sp:TransportBinding>
+                <wsaw:UsingAddressing/>
+            </wsp:All>
+        </wsp:ExactlyOne>
+    </wsp:Policy>
+    <wsp:Policy wsu:Id="WSHttpBinding_IVentopayTableRoutingService_policy">
+        <wsp:ExactlyOne>
+            <wsp:All>
+                <sp:TransportBinding xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+                    <wsp:Policy>
+                        <sp:TransportToken>
+                            <wsp:Policy>
+                                <sp:HttpsToken RequireClientCertificate="true"/>
+                            </wsp:Policy>
+                        </sp:TransportToken>
+                        <sp:AlgorithmSuite>
+                            <wsp:Policy>
+                                <sp:Basic256/>
+                            </wsp:Policy>
+                        </sp:AlgorithmSuite>
+                        <sp:Layout>
+                            <wsp:Policy>
+                                <sp:Strict/>
+                            </wsp:Policy>
+                        </sp:Layout>
+                    </wsp:Policy>
+                </sp:TransportBinding>
+                <wsaw:UsingAddressing/>
+            </wsp:All>
+        </wsp:ExactlyOne>
+    </wsp:Policy>
+    <wsp:Policy wsu:Id="WSHttpBinding_IVentopayMMSService_policy">
+        <wsp:ExactlyOne>
+            <wsp:All>
+                <sp:TransportBinding xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+                    <wsp:Policy>
+                        <sp:TransportToken>
+                            <wsp:Policy>
+                                <sp:HttpsToken RequireClientCertificate="true"/>
+                            </wsp:Policy>
+                        </sp:TransportToken>
+                        <sp:AlgorithmSuite>
+                            <wsp:Policy>
+                                <sp:Basic256/>
+                            </wsp:Policy>
+                        </sp:AlgorithmSuite>
+                        <sp:Layout>
+                            <wsp:Policy>
+                                <sp:Strict/>
+                            </wsp:Policy>
+                        </sp:Layout>
+                    </wsp:Policy>
+                </sp:TransportBinding>
+                <wsaw:UsingAddressing/>
+            </wsp:All>
+        </wsp:ExactlyOne>
+    </wsp:Policy>
+    <wsp:Policy wsu:Id="WSHttpBinding_IVentopayMasterDataService_policy">
+        <wsp:ExactlyOne>
+            <wsp:All>
+                <sp:TransportBinding xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+                    <wsp:Policy>
+                        <sp:TransportToken>
+                            <wsp:Policy>
+                                <sp:HttpsToken RequireClientCertificate="true"/>
+                            </wsp:Policy>
+                        </sp:TransportToken>
+                        <sp:AlgorithmSuite>
+                            <wsp:Policy>
+                                <sp:Basic256/>
+                            </wsp:Policy>
+                        </sp:AlgorithmSuite>
+                        <sp:Layout>
+                            <wsp:Policy>
+                                <sp:Strict/>
+                            </wsp:Policy>
+                        </sp:Layout>
+                    </wsp:Policy>
+                </sp:TransportBinding>
+                <wsaw:UsingAddressing/>
+            </wsp:All>
+        </wsp:ExactlyOne>
+    </wsp:Policy>
+    <wsdl:types>
+        <xsd:schema targetNamespace="http://tempuri.org/Imports">
+            <xsd:import schemaLocation="https://appservice.ventopay.com/ventopayappservice.svc?xsd=xsd0" namespace="http://tempuri.org/"/>
+            <xsd:import schemaLocation="https://appservice.ventopay.com/ventopayappservice.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/"/>
+            <xsd:import schemaLocation="https://appservice.ventopay.com/ventopayappservice.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/vp.mocca.common"/>
+            <xsd:import schemaLocation="https://appservice.ventopay.com/ventopayappservice.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/System.Data.Linq"/>
+            <xsd:import schemaLocation="https://appservice.ventopay.com/ventopayappservice.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/vp.mocca.app.service.core.Interfaces"/>
+            <xsd:import schemaLocation="https://appservice.ventopay.com/ventopayappservice.svc?xsd=xsd5" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays"/>
+            <xsd:import schemaLocation="https://appservice.ventopay.com/ventopayappservice.svc?xsd=xsd6" namespace="http://schemas.microsoft.com/Message"/>
+        </xsd:schema>
+    </wsdl:types>
+    <wsdl:message name="IVentopayCardService_CardTopUp_InputMessage">
+        <wsdl:part name="parameters" element="tns:CardTopUp"/>
+    </wsdl:message>
+    <wsdl:message name="IVentopayCardService_CardTopUp_OutputMessage">
+        <wsdl:part name="parameters" element="tns:CardTopUpResponse"/>
+    </wsdl:message>
+    <wsdl:message name="IVentopayCardService_CardTopUpNew_InputMessage">
+        <wsdl:part name="parameters" element="tns:CardTopUpNew"/>
+    </wsdl:message>
+    <wsdl:message name="IVentopayCardService_CardTopUpNew_OutputMessage">
+        <wsdl:part name="parameters" element="tns:CardTopUpNewResponse"/>
+    </wsdl:message>
+    <wsdl:message name="IVentopayCardService_GetBonlinesByBonNumber_InputMessage">
+        <wsdl:part name="parameters" element="tns:GetBonlinesByBonNumber"/>
+    </wsdl:message>
+    <wsdl:message name="IVentopayCardService_GetBonlinesByBonNumber_OutputMessage">
+        <wsdl:part name="parameters" element="tns:GetBonlinesByBonNumberResponse"/>
+    </wsdl:message>
+    <wsdl:message name="IVentopayCardService_GetBonsByPerson_InputMessage">
+        <wsdl:part name="parameters" element="tns:GetBonsByPerson"/>
+    </wsdl:message>
+    <wsdl:message name="IVentopayCardService_GetBonsByPerson_OutputMessage">
+        <wsdl:part name="parameters" element="tns:GetBonsByPersonResponse"/>
+    </wsdl:message>
+    <wsdl:message name="IVentopayCardService_GetLimtsByPerson_InputMessage">
+        <wsdl:part name="parameters" element="tns:GetLimtsByPerson"/>
+    </wsdl:message>
+    <wsdl:message name="IVentopayCardService_GetLimtsByPerson_OutputMessage">
+        <wsdl:part name="parameters" element="tns:GetLimtsByPersonResponse"/>
+    </wsdl:message>
+    <wsdl:message name="IVentopayMobileService_VpMob_CardTopUp_InputMessage">
+        <wsdl:part name="parameters" element="tns:VpMob_CardTopUp"/>
+    </wsdl:message>
+    <wsdl:message name="IVentopayMobileService_VpMob_CardTopUp_OutputMessage">
+        <wsdl:part name="parameters" element="tns:VpMob_CardTopUpResponse"/>
+    </wsdl:message>
+    <wsdl:message name="IVentopayMobileService_VpMob_GetBonlinesByBonNumber_InputMessage">
+        <wsdl:part name="parameters" element="tns:VpMob_GetBonlinesByBonNumber"/>
+    </wsdl:message>
+    <wsdl:message name="IVentopayMobileService_VpMob_GetBonlinesByBonNumber_OutputMessage">
+        <wsdl:part name="parameters" element="tns:VpMob_GetBonlinesByBonNumberResponse"/>
+    </wsdl:message>
+    <wsdl:message name="IVentopayMobileService_VpMob_GetBonsByPerson_InputMessage">
+        <wsdl:part name="parameters" element="tns:VpMob_GetBonsByPerson"/>
+    </wsdl:message>
+    <wsdl:message name="IVentopayMobileService_VpMob_GetBonsByPerson_OutputMessage">
+        <wsdl:part name="parameters" element="tns:VpMob_GetBonsByPersonResponse"/>
+    </wsdl:message>
+    <wsdl:message name="IVentopayMobileService_VpMob_GetLastBonByPerson_InputMessage">
+        <wsdl:part name="parameters" element="tns:VpMob_GetLastBonByPerson"/>
+    </wsdl:message>
+    <wsdl:message name="IVentopayMobileService_VpMob_GetLastBonByPerson_OutputMessage">
+        <wsdl:part name="parameters" element="tns:VpMob_GetLastBonByPersonResponse"/>
+    </wsdl:message>
+    <wsdl:message name="IVentopayMobileService_VpMob_GetLimtsByCard_InputMessage">
+        <wsdl:part name="parameters" element="tns:VpMob_GetLimtsByCard"/>
+    </wsdl:message>
+    <wsdl:message name="IVentopayMobileService_VpMob_GetLimtsByCard_OutputMessage">
+        <wsdl:part name="parameters" element="tns:VpMob_GetLimtsByCardResponse"/>
+    </wsdl:message>
+    <wsdl:message name="IVentopayMobileService_VpMob_GetBonusLevelForCard_InputMessage">
+        <wsdl:part name="parameters" element="tns:VpMob_GetBonusLevelForCard"/>
+    </wsdl:message>
+    <wsdl:message name="IVentopayMobileService_VpMob_GetBonusLevelForCard_OutputMessage">
+        <wsdl:part name="parameters" element="tns:VpMob_GetBonusLevelForCardResponse"/>
+    </wsdl:message>
+    <wsdl:message name="IVentopayMobileService_VpMob_ActivateBonus_InputMessage">
+        <wsdl:part name="parameters" element="tns:VpMob_ActivateBonus"/>
+    </wsdl:message>
+    <wsdl:message name="IVentopayMobileService_VpMob_ActivateBonus_OutputMessage">
+        <wsdl:part name="parameters" element="tns:VpMob_ActivateBonusResponse"/>
+    </wsdl:message>
+    <wsdl:message name="IVentopayMobileService_VpMob_GetRestaurant_InputMessage">
+        <wsdl:part name="parameters" element="tns:VpMob_GetRestaurant"/>
+    </wsdl:message>
+    <wsdl:message name="IVentopayMobileService_VpMob_GetRestaurant_OutputMessage">
+        <wsdl:part name="parameters" element="tns:VpMob_GetRestaurantResponse"/>
+    </wsdl:message>
+    <wsdl:message name="IVentopayMobileService_VpMob_GetNewsFeed_InputMessage">
+        <wsdl:part name="parameters" element="tns:VpMob_GetNewsFeed"/>
+    </wsdl:message>
+    <wsdl:message name="IVentopayMobileService_VpMob_GetNewsFeed_OutputMessage">
+        <wsdl:part name="parameters" element="tns:VpMob_GetNewsFeedResponse"/>
+    </wsdl:message>
+    <wsdl:message name="IVentopayMobileService_VpMob_UpdatePersonData_InputMessage">
+        <wsdl:part name="parameters" element="tns:VpMob_UpdatePersonData"/>
+    </wsdl:message>
+    <wsdl:message name="IVentopayMobileService_VpMob_UpdatePersonData_OutputMessage">
+        <wsdl:part name="parameters" element="tns:VpMob_UpdatePersonDataResponse"/>
+    </wsdl:message>
+    <wsdl:message name="IVentopayMobileService_VpMob_GetPersonInformation_InputMessage">
+        <wsdl:part name="parameters" element="tns:VpMob_GetPersonInformation"/>
+    </wsdl:message>
+    <wsdl:message name="IVentopayMobileService_VpMob_GetPersonInformation_OutputMessage">
+        <wsdl:part name="parameters" element="tns:VpMob_GetPersonInformationResponse"/>
+    </wsdl:message>
+    <wsdl:message name="IVentopayMobileService_VpMob_Login_InputMessage">
+        <wsdl:part name="parameters" element="tns:VpMob_Login"/>
+    </wsdl:message>
+    <wsdl:message name="IVentopayMobileService_VpMob_Login_OutputMessage">
+        <wsdl:part name="parameters" element="tns:VpMob_LoginResponse"/>
+    </wsdl:message>
+    <wsdl:message name="IVentopayMobileService_VpMob_ChangePassword_InputMessage">
+        <wsdl:part name="parameters" element="tns:VpMob_ChangePassword"/>
+    </wsdl:message>
+    <wsdl:message name="IVentopayMobileService_VpMob_ChangePassword_OutputMessage">
+        <wsdl:part name="parameters" element="tns:VpMob_ChangePasswordResponse"/>
+    </wsdl:message>
+    <wsdl:message name="IVentopayMobileService_VpMob_GetMenu_InputMessage">
+        <wsdl:part name="parameters" element="tns:VpMob_GetMenu"/>
+    </wsdl:message>
+    <wsdl:message name="IVentopayMobileService_VpMob_GetMenu_OutputMessage">
+        <wsdl:part name="parameters" element="tns:VpMob_GetMenuResponse"/>
+    </wsdl:message>
+    <wsdl:message name="IVentopayMobileService_VpMob_IsAlive_InputMessage">
+        <wsdl:part name="parameters" element="tns:VpMob_IsAlive"/>
+    </wsdl:message>
+    <wsdl:message name="IVentopayMobileService_VpMob_IsAlive_OutputMessage">
+        <wsdl:part name="parameters" element="tns:VpMob_IsAliveResponse"/>
+    </wsdl:message>
+    <wsdl:message name="IVentopayMobileService_VpMob_LoginByCardNumber_InputMessage">
+        <wsdl:part name="parameters" element="tns:VpMob_LoginByCardNumber"/>
+    </wsdl:message>
+    <wsdl:message name="IVentopayMobileService_VpMob_LoginByCardNumber_OutputMessage">
+        <wsdl:part name="parameters" element="tns:VpMob_LoginByCardNumberResponse"/>
+    </wsdl:message>
+    <wsdl:message name="IVentopayMobileService_VpMob_GetAllPersonInformation_InputMessage">
+        <wsdl:part name="parameters" element="tns:VpMob_GetAllPersonInformation"/>
+    </wsdl:message>
+    <wsdl:message name="IVentopayMobileService_VpMob_GetAllPersonInformation_OutputMessage">
+        <wsdl:part name="parameters" element="tns:VpMob_GetAllPersonInformationResponse"/>
+    </wsdl:message>
+    <wsdl:message name="IVentopayMobileService_VpMob_GetApplicationSetting_InputMessage">
+        <wsdl:part name="parameters" element="tns:VpMob_GetApplicationSetting"/>
+    </wsdl:message>
+    <wsdl:message name="IVentopayMobileService_VpMob_GetApplicationSetting_OutputMessage">
+        <wsdl:part name="parameters" element="tns:VpMob_GetApplicationSettingResponse"/>
+    </wsdl:message>
+    <wsdl:message name="IVentopayMobileService_VpMob_GetAllCustomergroupInformation_InputMessage">
+        <wsdl:part name="parameters" element="tns:VpMob_GetAllCustomergroupInformation"/>
+    </wsdl:message>
+    <wsdl:message name="IVentopayMobileService_VpMob_GetAllCustomergroupInformation_OutputMessage">
+        <wsdl:part name="parameters" element="tns:VpMob_GetAllCustomergroupInformationResponse"/>
+    </wsdl:message>
+    <wsdl:message name="IVentopayMobileService_VpMob_ResetPassword_InputMessage">
+        <wsdl:part name="parameters" element="tns:VpMob_ResetPassword"/>
+    </wsdl:message>
+    <wsdl:message name="IVentopayMobileService_VpMob_ResetPassword_OutputMessage">
+        <wsdl:part name="parameters" element="tns:VpMob_ResetPasswordResponse"/>
+    </wsdl:message>
+    <wsdl:message name="IVentopayMobileService_VpMob_GetNutrientInformation_InputMessage">
+        <wsdl:part name="parameters" element="tns:VpMob_GetNutrientInformation"/>
+    </wsdl:message>
+    <wsdl:message name="IVentopayMobileService_VpMob_GetNutrientInformation_OutputMessage">
+        <wsdl:part name="parameters" element="tns:VpMob_GetNutrientInformationResponse"/>
+    </wsdl:message>
+    <wsdl:message name="IVentopayMobileService_VpMob_GetBonlinesByPerson_InputMessage">
+        <wsdl:part name="parameters" element="tns:VpMob_GetBonlinesByPerson"/>
+    </wsdl:message>
+    <wsdl:message name="IVentopayMobileService_VpMob_GetBonlinesByPerson_OutputMessage">
+        <wsdl:part name="parameters" element="tns:VpMob_GetBonlinesByPersonResponse"/>
+    </wsdl:message>
+    <wsdl:message name="IVentopayMobileService_VpMob_GetContactInformation_InputMessage">
+        <wsdl:part name="parameters" element="tns:VpMob_GetContactInformation"/>
+    </wsdl:message>
+    <wsdl:message name="IVentopayMobileService_VpMob_GetContactInformation_OutputMessage">
+        <wsdl:part name="parameters" element="tns:VpMob_GetContactInformationResponse"/>
+    </wsdl:message>
+    <wsdl:message name="IVentopayMobileService_VpMob_SendMessage_InputMessage">
+        <wsdl:part name="parameters" element="tns:VpMob_SendMessage"/>
+    </wsdl:message>
+    <wsdl:message name="IVentopayMobileService_VpMob_SendMessage_OutputMessage">
+        <wsdl:part name="parameters" element="tns:VpMob_SendMessageResponse"/>
+    </wsdl:message>
+    <wsdl:message name="IVentopayMobileService_VpMob_GetActivityLevels_InputMessage">
+        <wsdl:part name="parameters" element="tns:VpMob_GetActivityLevels"/>
+    </wsdl:message>
+    <wsdl:message name="IVentopayMobileService_VpMob_GetActivityLevels_OutputMessage">
+        <wsdl:part name="parameters" element="tns:VpMob_GetActivityLevelsResponse"/>
+    </wsdl:message>
+    <wsdl:message name="IVentopayMobileService_VpMob_GetTopUps_InputMessage">
+        <wsdl:part name="parameters" element="tns:VpMob_GetTopUps"/>
+    </wsdl:message>
+    <wsdl:message name="IVentopayMobileService_VpMob_GetTopUps_OutputMessage">
+        <wsdl:part name="parameters" element="tns:VpMob_GetTopUpsResponse"/>
+    </wsdl:message>
+    <wsdl:message name="IVentopayMobileService_VpMob_GetPersonPicture_InputMessage">
+        <wsdl:part name="parameters" element="tns:VpMob_GetPersonPicture"/>
+    </wsdl:message>
+    <wsdl:message name="IVentopayMobileService_VpMob_GetPersonPicture_OutputMessage">
+        <wsdl:part name="parameters" element="tns:VpMob_GetPersonPictureResponse"/>
+    </wsdl:message>
+    <wsdl:message name="IVentopayMobileService_VpMob_SetPersonPicture_InputMessage">
+        <wsdl:part name="parameters" element="tns:VpMob_SetPersonPicture"/>
+    </wsdl:message>
+    <wsdl:message name="IVentopayMobileService_VpMob_SetPersonPicture_OutputMessage">
+        <wsdl:part name="parameters" element="tns:VpMob_SetPersonPictureResponse"/>
+    </wsdl:message>
+    <wsdl:message name="IVentopayMobileService_VpMob_GetAllergens_InputMessage">
+        <wsdl:part name="parameters" element="tns:VpMob_GetAllergens"/>
+    </wsdl:message>
+    <wsdl:message name="IVentopayMobileService_VpMob_GetAllergens_OutputMessage">
+        <wsdl:part name="parameters" element="tns:VpMob_GetAllergensResponse"/>
+    </wsdl:message>
+    <wsdl:message name="IVentopayMobileService_VpMob_GetAllergenLegend_InputMessage">
+        <wsdl:part name="parameters" element="tns:VpMob_GetAllergenLegend"/>
+    </wsdl:message>
+    <wsdl:message name="IVentopayMobileService_VpMob_GetAllergenLegend_OutputMessage">
+        <wsdl:part name="parameters" element="tns:VpMob_GetAllergenLegendResponse"/>
+    </wsdl:message>
+    <wsdl:message name="IVentopayMobileService_VpMob_GetFeedbackProgram_InputMessage">
+        <wsdl:part name="parameters" element="tns:VpMob_GetFeedbackProgram"/>
+    </wsdl:message>
+    <wsdl:message name="IVentopayMobileService_VpMob_GetFeedbackProgram_OutputMessage">
+        <wsdl:part name="parameters" element="tns:VpMob_GetFeedbackProgramResponse"/>
+    </wsdl:message>
+    <wsdl:message name="IVentopayMobileService_VpMob_SetFeedbackAnswer_InputMessage">
+        <wsdl:part name="parameters" element="tns:VpMob_SetFeedbackAnswer"/>
+    </wsdl:message>
+    <wsdl:message name="IVentopayMobileService_VpMob_SetFeedbackAnswer_OutputMessage">
+        <wsdl:part name="parameters" element="tns:VpMob_SetFeedbackAnswerResponse"/>
+    </wsdl:message>
+    <wsdl:message name="IVentopayMobileService_VpMob_MergeAccounts_InputMessage">
+        <wsdl:part name="parameters" element="tns:VpMob_MergeAccounts"/>
+    </wsdl:message>
+    <wsdl:message name="IVentopayMobileService_VpMob_MergeAccounts_OutputMessage">
+        <wsdl:part name="parameters" element="tns:VpMob_MergeAccountsResponse"/>
+    </wsdl:message>
+    <wsdl:message name="IVentopayMobileService_VpMob_ResetPersonToStandardGroup_InputMessage">
+        <wsdl:part name="parameters" element="tns:VpMob_ResetPersonToStandardGroup"/>
+    </wsdl:message>
+    <wsdl:message name="IVentopayMobileService_VpMob_ResetPersonToStandardGroup_OutputMessage">
+        <wsdl:part name="parameters" element="tns:VpMob_ResetPersonToStandardGroupResponse"/>
+    </wsdl:message>
+    <wsdl:message name="IVentopayMobileService_VpMob_UpdateBonline_InputMessage">
+        <wsdl:part name="parameters" element="tns:VpMob_UpdateBonline"/>
+    </wsdl:message>
+    <wsdl:message name="IVentopayMobileService_VpMob_UpdateBonline_OutputMessage">
+        <wsdl:part name="parameters" element="tns:VpMob_UpdateBonlineResponse"/>
+    </wsdl:message>
+    <wsdl:message name="IVentopayMobileService_VpMob_GetText_InputMessage">
+        <wsdl:part name="parameters" element="tns:VpMob_GetText"/>
+    </wsdl:message>
+    <wsdl:message name="IVentopayMobileService_VpMob_GetText_OutputMessage">
+        <wsdl:part name="parameters" element="tns:VpMob_GetTextResponse"/>
+    </wsdl:message>
+    <wsdl:message name="IVentopayMobileService_VpMob_ActivateNewsFeed_InputMessage">
+        <wsdl:part name="parameters" element="tns:VpMob_ActivateNewsFeed"/>
+    </wsdl:message>
+    <wsdl:message name="IVentopayMobileService_VpMob_ActivateNewsFeed_OutputMessage">
+        <wsdl:part name="parameters" element="tns:VpMob_ActivateNewsFeedResponse"/>
+    </wsdl:message>
+    <wsdl:message name="IVentopayMobileService_VpMob_ChangeTermsAcceptanceState_InputMessage">
+        <wsdl:part name="parameters" element="tns:VpMob_ChangeTermsAcceptanceState"/>
+    </wsdl:message>
+    <wsdl:message name="IVentopayMobileService_VpMob_ChangeTermsAcceptanceState_OutputMessage">
+        <wsdl:part name="parameters" element="tns:VpMob_ChangeTermsAcceptanceStateResponse"/>
+    </wsdl:message>
+    <wsdl:message name="IVentopayMobileService_VpMob_GetLastTermStatesByPerson_InputMessage">
+        <wsdl:part name="parameters" element="tns:VpMob_GetLastTermStatesByPerson"/>
+    </wsdl:message>
+    <wsdl:message name="IVentopayMobileService_VpMob_GetLastTermStatesByPerson_OutputMessage">
+        <wsdl:part name="parameters" element="tns:VpMob_GetLastTermStatesByPersonResponse"/>
+    </wsdl:message>
+    <wsdl:message name="IVentopayMobileService_VpMob_LoginByPersonNumber_InputMessage">
+        <wsdl:part name="parameters" element="tns:VpMob_LoginByPersonNumber"/>
+    </wsdl:message>
+    <wsdl:message name="IVentopayMobileService_VpMob_LoginByPersonNumber_OutputMessage">
+        <wsdl:part name="parameters" element="tns:VpMob_LoginByPersonNumberResponse"/>
+    </wsdl:message>
+    <wsdl:message name="IVentopayMobileService_VpMob_GetAvailableLanguages_InputMessage">
+        <wsdl:part name="parameters" element="tns:VpMob_GetAvailableLanguages"/>
+    </wsdl:message>
+    <wsdl:message name="IVentopayMobileService_VpMob_GetAvailableLanguages_OutputMessage">
+        <wsdl:part name="parameters" element="tns:VpMob_GetAvailableLanguagesResponse"/>
+    </wsdl:message>
+    <wsdl:message name="IVentopayMobileService_VpMob_ResendMailActivation_InputMessage">
+        <wsdl:part name="parameters" element="tns:VpMob_ResendMailActivation"/>
+    </wsdl:message>
+    <wsdl:message name="IVentopayMobileService_VpMob_ResendMailActivation_OutputMessage">
+        <wsdl:part name="parameters" element="tns:VpMob_ResendMailActivationResponse"/>
+    </wsdl:message>
+    <wsdl:message name="IVentopayMobileService_VpMob_LoginByAccountDetail_InputMessage">
+        <wsdl:part name="parameters" element="tns:VpMob_LoginByAccountDetail"/>
+    </wsdl:message>
+    <wsdl:message name="IVentopayMobileService_VpMob_LoginByAccountDetail_OutputMessage">
+        <wsdl:part name="parameters" element="tns:VpMob_LoginByAccountDetailResponse"/>
+    </wsdl:message>
+    <wsdl:message name="IVentopayMobileService_VpMob_GetBonlinesByPersonWithExcludedCashpoints_InputMessage">
+        <wsdl:part name="parameters" element="tns:VpMob_GetBonlinesByPersonWithExcludedCashpoints"/>
+    </wsdl:message>
+    <wsdl:message name="IVentopayMobileService_VpMob_GetBonlinesByPersonWithExcludedCashpoints_OutputMessage">
+        <wsdl:part name="parameters" element="tns:VpMob_GetBonlinesByPersonWithExcludedCashpointsResponse"/>
+    </wsdl:message>
+    <wsdl:message name="IVentopayMobileService_VpMob_ChangePin_InputMessage">
+        <wsdl:part name="parameters" element="tns:VpMob_ChangePin"/>
+    </wsdl:message>
+    <wsdl:message name="IVentopayMobileService_VpMob_ChangePin_OutputMessage">
+        <wsdl:part name="parameters" element="tns:VpMob_ChangePinResponse"/>
+    </wsdl:message>
+    <wsdl:message name="IVentopayMobileService_VpMob_Log_InputMessage">
+        <wsdl:part name="parameters" element="tns:VpMob_Log"/>
+    </wsdl:message>
+    <wsdl:message name="IVentopayMobileService_VpMob_Log_OutputMessage">
+        <wsdl:part name="parameters" element="tns:VpMob_LogResponse"/>
+    </wsdl:message>
+    <wsdl:message name="IVentopayMobileService_VpMob_PayoutSaldo_InputMessage">
+        <wsdl:part name="parameters" element="tns:VpMob_PayoutSaldo"/>
+    </wsdl:message>
+    <wsdl:message name="IVentopayMobileService_VpMob_PayoutSaldo_OutputMessage">
+        <wsdl:part name="parameters" element="tns:VpMob_PayoutSaldoResponse"/>
+    </wsdl:message>
+    <wsdl:message name="IVentopayMobileService_VpMob_DoPayment_InputMessage">
+        <wsdl:part name="parameters" element="tns:VpMob_DoPayment"/>
+    </wsdl:message>
+    <wsdl:message name="IVentopayMobileService_VpMob_DoPayment_OutputMessage">
+        <wsdl:part name="parameters" element="tns:VpMob_DoPaymentResponse"/>
+    </wsdl:message>
+    <wsdl:message name="IVentopayMobileService_VpMob_DoMobilePayment_InputMessage">
+        <wsdl:part name="parameters" element="tns:VpMob_DoMobilePayment"/>
+    </wsdl:message>
+    <wsdl:message name="IVentopayMobileService_VpMob_DoMobilePayment_OutputMessage">
+        <wsdl:part name="parameters" element="tns:VpMob_DoMobilePaymentResponse"/>
+    </wsdl:message>
+    <wsdl:message name="IVentopayMobileService_VpMob_DoAuthorization_InputMessage">
+        <wsdl:part name="parameters" element="tns:VpMob_DoAuthorization"/>
+    </wsdl:message>
+    <wsdl:message name="IVentopayMobileService_VpMob_DoAuthorization_OutputMessage">
+        <wsdl:part name="parameters" element="tns:VpMob_DoAuthorizationResponse"/>
+    </wsdl:message>
+    <wsdl:message name="IVentopayMobileService_VpMob_RegisterUser_InputMessage">
+        <wsdl:part name="parameters" element="tns:VpMob_RegisterUser"/>
+    </wsdl:message>
+    <wsdl:message name="IVentopayMobileService_VpMob_RegisterUser_OutputMessage">
+        <wsdl:part name="parameters" element="tns:VpMob_RegisterUserResponse"/>
+    </wsdl:message>
+    <wsdl:message name="IVentopayMobileService_VpMob_GetReportData_InputMessage">
+        <wsdl:part name="parameters" element="tns:VpMob_GetReportData"/>
+    </wsdl:message>
+    <wsdl:message name="IVentopayMobileService_VpMob_GetReportData_OutputMessage">
+        <wsdl:part name="parameters" element="tns:VpMob_GetReportDataResponse"/>
+    </wsdl:message>
+    <wsdl:message name="IVentopayMobileService_VpMob_NotifyModule_InputMessage">
+        <wsdl:part name="parameters" element="tns:VpMob_NotifyModule"/>
+    </wsdl:message>
+    <wsdl:message name="IVentopayMobileService_VpMob_NotifyModule_OutputMessage">
+        <wsdl:part name="parameters" element="tns:VpMob_NotifyModuleResponse"/>
+    </wsdl:message>
+    <wsdl:message name="IVentopayMobileService_VpMob_NotifyNewsfeed_InputMessage">
+        <wsdl:part name="parameters" element="tns:VpMob_NotifyNewsfeed"/>
+    </wsdl:message>
+    <wsdl:message name="IVentopayMobileService_VpMob_NotifyNewsfeed_OutputMessage">
+        <wsdl:part name="parameters" element="tns:VpMob_NotifyNewsfeedResponse"/>
+    </wsdl:message>
+    <wsdl:message name="IVentopayMobileService_VpMob_NotifyFeedback_InputMessage">
+        <wsdl:part name="parameters" element="tns:VpMob_NotifyFeedback"/>
+    </wsdl:message>
+    <wsdl:message name="IVentopayMobileService_VpMob_NotifyFeedback_OutputMessage">
+        <wsdl:part name="parameters" element="tns:VpMob_NotifyFeedbackResponse"/>
+    </wsdl:message>
+    <wsdl:message name="IVentopayMobileService_VpMob_GetBleEnabledCashpoints_InputMessage">
+        <wsdl:part name="parameters" element="tns:VpMob_GetBleEnabledCashpoints"/>
+    </wsdl:message>
+    <wsdl:message name="IVentopayMobileService_VpMob_GetBleEnabledCashpoints_OutputMessage">
+        <wsdl:part name="parameters" element="tns:VpMob_GetBleEnabledCashpointsResponse"/>
+    </wsdl:message>
+    <wsdl:message name="IVentopayMobileService_VpMob_EnablePayment_InputMessage">
+        <wsdl:part name="parameters" element="tns:VpMob_EnablePayment"/>
+    </wsdl:message>
+    <wsdl:message name="IVentopayMobileService_VpMob_EnablePayment_OutputMessage">
+        <wsdl:part name="parameters" element="tns:VpMob_EnablePaymentResponse"/>
+    </wsdl:message>
+    <wsdl:message name="IVentopayMobileService_VpMob_CancelPayment_InputMessage">
+        <wsdl:part name="parameters" element="tns:VpMob_CancelPayment"/>
+    </wsdl:message>
+    <wsdl:message name="IVentopayMobileService_VpMob_CancelPayment_OutputMessage">
+        <wsdl:part name="parameters" element="tns:VpMob_CancelPaymentResponse"/>
+    </wsdl:message>
+    <wsdl:message name="IVentopayMobileService_VpMob_IsPaymentActive_InputMessage">
+        <wsdl:part name="parameters" element="tns:VpMob_IsPaymentActive"/>
+    </wsdl:message>
+    <wsdl:message name="IVentopayMobileService_VpMob_IsPaymentActive_OutputMessage">
+        <wsdl:part name="parameters" element="tns:VpMob_IsPaymentActiveResponse"/>
+    </wsdl:message>
+    <wsdl:message name="IVentopayMobileService_VpMob_GetBonByBonId_InputMessage">
+        <wsdl:part name="parameters" element="tns:VpMob_GetBonByBonId"/>
+    </wsdl:message>
+    <wsdl:message name="IVentopayMobileService_VpMob_GetBonByBonId_OutputMessage">
+        <wsdl:part name="parameters" element="tns:VpMob_GetBonByBonIdResponse"/>
+    </wsdl:message>
+    <wsdl:message name="IVentopayMobileService_VpMob_GetBranding_InputMessage">
+        <wsdl:part name="parameters" element="tns:VpMob_GetBranding"/>
+    </wsdl:message>
+    <wsdl:message name="IVentopayMobileService_VpMob_GetBranding_OutputMessage">
+        <wsdl:part name="parameters" element="tns:VpMob_GetBrandingResponse"/>
+    </wsdl:message>
+    <wsdl:message name="IVentopayTableRoutingService_GetTableInformation_InputMessage">
+        <wsdl:part name="parameters" element="tns:GetTableInformation"/>
+    </wsdl:message>
+    <wsdl:message name="IVentopayTableRoutingService_GetTableInformation_OutputMessage">
+        <wsdl:part name="parameters" element="tns:GetTableInformationResponse"/>
+    </wsdl:message>
+    <wsdl:message name="IVentopayTableRoutingService_GetTableInformationNew_InputMessage">
+        <wsdl:part name="parameters" element="tns:GetTableInformationNew"/>
+    </wsdl:message>
+    <wsdl:message name="IVentopayTableRoutingService_GetTableInformationNew_OutputMessage">
+        <wsdl:part name="parameters" element="tns:GetTableInformationNewResponse"/>
+    </wsdl:message>
+    <wsdl:message name="IVentopayTableRoutingService_GetTableAreas_InputMessage">
+        <wsdl:part name="parameters" element="tns:GetTableAreas"/>
+    </wsdl:message>
+    <wsdl:message name="IVentopayTableRoutingService_GetTableAreas_OutputMessage">
+        <wsdl:part name="parameters" element="tns:GetTableAreasResponse"/>
+    </wsdl:message>
+    <wsdl:message name="IVentopayFileService_IsAlive_InputMessage">
+        <wsdl:part name="parameters" element="tns:IsAlive"/>
+    </wsdl:message>
+    <wsdl:message name="IVentopayFileService_IsAlive_OutputMessage">
+        <wsdl:part name="parameters" element="tns:IsAliveResponse"/>
+    </wsdl:message>
+    <wsdl:message name="IVentopayFileService_GetFileListFromDirectory_InputMessage">
+        <wsdl:part name="parameters" element="tns:GetFileListFromDirectory"/>
+    </wsdl:message>
+    <wsdl:message name="IVentopayFileService_GetFileListFromDirectory_OutputMessage">
+        <wsdl:part name="parameters" element="tns:GetFileListFromDirectoryResponse"/>
+    </wsdl:message>
+    <wsdl:message name="DownloadRequest">
+        <wsdl:part name="parameters" element="tns:DownloadRequest"/>
+    </wsdl:message>
+    <wsdl:message name="RemoteFileInfo">
+        <wsdl:part name="parameters" element="tns:RemoteFileInfo"/>
+    </wsdl:message>
+    <wsdl:message name="RemoteFileInfo_Headers">
+        <wsdl:part name="FileName" element="tns:FileName"/>
+        <wsdl:part name="Length" element="tns:Length"/>
+    </wsdl:message>
+    <wsdl:message name="IVentopayBonusService_GetBonusLevelForCard_InputMessage">
+        <wsdl:part name="parameters" element="tns:GetBonusLevelForCard"/>
+    </wsdl:message>
+    <wsdl:message name="IVentopayBonusService_GetBonusLevelForCard_OutputMessage">
+        <wsdl:part name="parameters" element="tns:GetBonusLevelForCardResponse"/>
+    </wsdl:message>
+    <wsdl:message name="IVentopayBonusService_GetBonusLevelForCardNew_InputMessage">
+        <wsdl:part name="parameters" element="tns:GetBonusLevelForCardNew"/>
+    </wsdl:message>
+    <wsdl:message name="IVentopayBonusService_GetBonusLevelForCardNew_OutputMessage">
+        <wsdl:part name="parameters" element="tns:GetBonusLevelForCardNewResponse"/>
+    </wsdl:message>
+    <wsdl:message name="IVentopayBonusService_ActivateBonus_InputMessage">
+        <wsdl:part name="parameters" element="tns:ActivateBonus"/>
+    </wsdl:message>
+    <wsdl:message name="IVentopayBonusService_ActivateBonus_OutputMessage">
+        <wsdl:part name="parameters" element="tns:ActivateBonusResponse"/>
+    </wsdl:message>
+    <wsdl:message name="IVentopayBonusService_ActivateBonusNew_InputMessage">
+        <wsdl:part name="parameters" element="tns:ActivateBonusNew"/>
+    </wsdl:message>
+    <wsdl:message name="IVentopayBonusService_ActivateBonusNew_OutputMessage">
+        <wsdl:part name="parameters" element="tns:ActivateBonusNewResponse"/>
+    </wsdl:message>
+    <wsdl:message name="IVentopayMMSService_VpMms_GetFeedbackRating_InputMessage">
+        <wsdl:part name="parameters" element="tns:VpMms_GetFeedbackRating"/>
+    </wsdl:message>
+    <wsdl:message name="IVentopayMMSService_VpMms_GetFeedbackRating_OutputMessage">
+        <wsdl:part name="parameters" element="tns:VpMms_GetFeedbackRatingResponse"/>
+    </wsdl:message>
+    <wsdl:message name="IVentopayMMSService_VpMms_IsAlive_InputMessage">
+        <wsdl:part name="parameters" element="tns:VpMms_IsAlive"/>
+    </wsdl:message>
+    <wsdl:message name="IVentopayMMSService_VpMms_IsAlive_OutputMessage">
+        <wsdl:part name="parameters" element="tns:VpMms_IsAliveResponse"/>
+    </wsdl:message>
+    <wsdl:message name="IVentopayMasterDataService_VpMds_UpdatePerson_InputMessage">
+        <wsdl:part name="parameters" element="tns:VpMds_UpdatePerson"/>
+    </wsdl:message>
+    <wsdl:message name="IVentopayMasterDataService_VpMds_UpdatePerson_OutputMessage">
+        <wsdl:part name="parameters" element="tns:VpMds_UpdatePersonResponse"/>
+    </wsdl:message>
+    <wsdl:message name="IVentopayMasterDataService_VpMds_IsAlive_InputMessage">
+        <wsdl:part name="parameters" element="tns:VpMds_IsAlive"/>
+    </wsdl:message>
+    <wsdl:message name="IVentopayMasterDataService_VpMds_IsAlive_OutputMessage">
+        <wsdl:part name="parameters" element="tns:VpMds_IsAliveResponse"/>
+    </wsdl:message>
+    <wsdl:message name="IVentopayMasterDataService_VpMds_GetMonthSums_InputMessage">
+        <wsdl:part name="parameters" element="tns:VpMds_GetMonthSums"/>
+    </wsdl:message>
+    <wsdl:message name="IVentopayMasterDataService_VpMds_GetMonthSums_OutputMessage">
+        <wsdl:part name="parameters" element="tns:VpMds_GetMonthSumsResponse"/>
+    </wsdl:message>
+    <wsdl:portType name="IVentopayCardService">
+        <wsdl:operation name="CardTopUp">
+            <wsdl:input wsaw:Action="http://tempuri.org/IVentopayCardService/CardTopUp" message="tns:IVentopayCardService_CardTopUp_InputMessage"/>
+            <wsdl:output wsaw:Action="http://tempuri.org/IVentopayCardService/CardTopUpResponse" message="tns:IVentopayCardService_CardTopUp_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="CardTopUpNew">
+            <wsdl:input wsaw:Action="http://tempuri.org/IVentopayCardService/CardTopUpNew" message="tns:IVentopayCardService_CardTopUpNew_InputMessage"/>
+            <wsdl:output wsaw:Action="http://tempuri.org/IVentopayCardService/CardTopUpNewResponse" message="tns:IVentopayCardService_CardTopUpNew_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="GetBonlinesByBonNumber">
+            <wsdl:input wsaw:Action="http://tempuri.org/IVentopayCardService/GetBonlinesByBonNumber" message="tns:IVentopayCardService_GetBonlinesByBonNumber_InputMessage"/>
+            <wsdl:output wsaw:Action="http://tempuri.org/IVentopayCardService/GetBonlinesByBonNumberResponse" message="tns:IVentopayCardService_GetBonlinesByBonNumber_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="GetBonsByPerson">
+            <wsdl:input wsaw:Action="http://tempuri.org/IVentopayCardService/GetBonsByPerson" message="tns:IVentopayCardService_GetBonsByPerson_InputMessage"/>
+            <wsdl:output wsaw:Action="http://tempuri.org/IVentopayCardService/GetBonsByPersonResponse" message="tns:IVentopayCardService_GetBonsByPerson_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="GetLimtsByPerson">
+            <wsdl:input wsaw:Action="http://tempuri.org/IVentopayCardService/GetLimtsByPerson" message="tns:IVentopayCardService_GetLimtsByPerson_InputMessage"/>
+            <wsdl:output wsaw:Action="http://tempuri.org/IVentopayCardService/GetLimtsByPersonResponse" message="tns:IVentopayCardService_GetLimtsByPerson_OutputMessage"/>
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:portType name="IVentopayMobileService">
+        <wsdl:operation name="VpMob_CardTopUp">
+            <wsdl:input wsaw:Action="http://tempuri.org/IVentopayMobileService/VpMob_CardTopUp" message="tns:IVentopayMobileService_VpMob_CardTopUp_InputMessage"/>
+            <wsdl:output wsaw:Action="http://tempuri.org/IVentopayMobileService/VpMob_CardTopUpResponse" message="tns:IVentopayMobileService_VpMob_CardTopUp_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="VpMob_GetBonlinesByBonNumber">
+            <wsdl:input wsaw:Action="http://tempuri.org/IVentopayMobileService/VpMob_GetBonlinesByBonNumber" message="tns:IVentopayMobileService_VpMob_GetBonlinesByBonNumber_InputMessage"/>
+            <wsdl:output wsaw:Action="http://tempuri.org/IVentopayMobileService/VpMob_GetBonlinesByBonNumberResponse" message="tns:IVentopayMobileService_VpMob_GetBonlinesByBonNumber_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="VpMob_GetBonsByPerson">
+            <wsdl:input wsaw:Action="http://tempuri.org/IVentopayMobileService/VpMob_GetBonsByPerson" message="tns:IVentopayMobileService_VpMob_GetBonsByPerson_InputMessage"/>
+            <wsdl:output wsaw:Action="http://tempuri.org/IVentopayMobileService/VpMob_GetBonsByPersonResponse" message="tns:IVentopayMobileService_VpMob_GetBonsByPerson_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="VpMob_GetLastBonByPerson">
+            <wsdl:input wsaw:Action="http://tempuri.org/IVentopayMobileService/VpMob_GetLastBonByPerson" message="tns:IVentopayMobileService_VpMob_GetLastBonByPerson_InputMessage"/>
+            <wsdl:output wsaw:Action="http://tempuri.org/IVentopayMobileService/VpMob_GetLastBonByPersonResponse" message="tns:IVentopayMobileService_VpMob_GetLastBonByPerson_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="VpMob_GetLimtsByCard">
+            <wsdl:input wsaw:Action="http://tempuri.org/IVentopayMobileService/VpMob_GetLimtsByCard" message="tns:IVentopayMobileService_VpMob_GetLimtsByCard_InputMessage"/>
+            <wsdl:output wsaw:Action="http://tempuri.org/IVentopayMobileService/VpMob_GetLimtsByCardResponse" message="tns:IVentopayMobileService_VpMob_GetLimtsByCard_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="VpMob_GetBonusLevelForCard">
+            <wsdl:input wsaw:Action="http://tempuri.org/IVentopayMobileService/VpMob_GetBonusLevelForCard" message="tns:IVentopayMobileService_VpMob_GetBonusLevelForCard_InputMessage"/>
+            <wsdl:output wsaw:Action="http://tempuri.org/IVentopayMobileService/VpMob_GetBonusLevelForCardResponse" message="tns:IVentopayMobileService_VpMob_GetBonusLevelForCard_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="VpMob_ActivateBonus">
+            <wsdl:input wsaw:Action="http://tempuri.org/IVentopayMobileService/VpMob_ActivateBonus" message="tns:IVentopayMobileService_VpMob_ActivateBonus_InputMessage"/>
+            <wsdl:output wsaw:Action="http://tempuri.org/IVentopayMobileService/VpMob_ActivateBonusResponse" message="tns:IVentopayMobileService_VpMob_ActivateBonus_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="VpMob_GetRestaurant">
+            <wsdl:input wsaw:Action="http://tempuri.org/IVentopayMobileService/VpMob_GetRestaurant" message="tns:IVentopayMobileService_VpMob_GetRestaurant_InputMessage"/>
+            <wsdl:output wsaw:Action="http://tempuri.org/IVentopayMobileService/VpMob_GetRestaurantResponse" message="tns:IVentopayMobileService_VpMob_GetRestaurant_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="VpMob_GetNewsFeed">
+            <wsdl:input wsaw:Action="http://tempuri.org/IVentopayMobileService/VpMob_GetNewsFeed" message="tns:IVentopayMobileService_VpMob_GetNewsFeed_InputMessage"/>
+            <wsdl:output wsaw:Action="http://tempuri.org/IVentopayMobileService/VpMob_GetNewsFeedResponse" message="tns:IVentopayMobileService_VpMob_GetNewsFeed_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="VpMob_UpdatePersonData">
+            <wsdl:input wsaw:Action="http://tempuri.org/IVentopayMobileService/VpMob_UpdatePersonData" message="tns:IVentopayMobileService_VpMob_UpdatePersonData_InputMessage"/>
+            <wsdl:output wsaw:Action="http://tempuri.org/IVentopayMobileService/VpMob_UpdatePersonDataResponse" message="tns:IVentopayMobileService_VpMob_UpdatePersonData_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="VpMob_GetPersonInformation">
+            <wsdl:input wsaw:Action="http://tempuri.org/IVentopayMobileService/VpMob_GetPersonInformation" message="tns:IVentopayMobileService_VpMob_GetPersonInformation_InputMessage"/>
+            <wsdl:output wsaw:Action="http://tempuri.org/IVentopayMobileService/VpMob_GetPersonInformationResponse" message="tns:IVentopayMobileService_VpMob_GetPersonInformation_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="VpMob_Login">
+            <wsdl:input wsaw:Action="http://tempuri.org/IVentopayMobileService/VpMob_Login" message="tns:IVentopayMobileService_VpMob_Login_InputMessage"/>
+            <wsdl:output wsaw:Action="http://tempuri.org/IVentopayMobileService/VpMob_LoginResponse" message="tns:IVentopayMobileService_VpMob_Login_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="VpMob_ChangePassword">
+            <wsdl:input wsaw:Action="http://tempuri.org/IVentopayMobileService/VpMob_ChangePassword" message="tns:IVentopayMobileService_VpMob_ChangePassword_InputMessage"/>
+            <wsdl:output wsaw:Action="http://tempuri.org/IVentopayMobileService/VpMob_ChangePasswordResponse" message="tns:IVentopayMobileService_VpMob_ChangePassword_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="VpMob_GetMenu">
+            <wsdl:input wsaw:Action="http://tempuri.org/IVentopayMobileService/VpMob_GetMenu" message="tns:IVentopayMobileService_VpMob_GetMenu_InputMessage"/>
+            <wsdl:output wsaw:Action="http://tempuri.org/IVentopayMobileService/VpMob_GetMenuResponse" message="tns:IVentopayMobileService_VpMob_GetMenu_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="VpMob_IsAlive">
+            <wsdl:input wsaw:Action="http://tempuri.org/IVentopayMobileService/VpMob_IsAlive" message="tns:IVentopayMobileService_VpMob_IsAlive_InputMessage"/>
+            <wsdl:output wsaw:Action="http://tempuri.org/IVentopayMobileService/VpMob_IsAliveResponse" message="tns:IVentopayMobileService_VpMob_IsAlive_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="VpMob_LoginByCardNumber">
+            <wsdl:input wsaw:Action="http://tempuri.org/IVentopayMobileService/VpMob_LoginByCardNumber" message="tns:IVentopayMobileService_VpMob_LoginByCardNumber_InputMessage"/>
+            <wsdl:output wsaw:Action="http://tempuri.org/IVentopayMobileService/VpMob_LoginByCardNumberResponse" message="tns:IVentopayMobileService_VpMob_LoginByCardNumber_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="VpMob_GetAllPersonInformation">
+            <wsdl:input wsaw:Action="http://tempuri.org/IVentopayMobileService/VpMob_GetAllPersonInformation" message="tns:IVentopayMobileService_VpMob_GetAllPersonInformation_InputMessage"/>
+            <wsdl:output wsaw:Action="http://tempuri.org/IVentopayMobileService/VpMob_GetAllPersonInformationResponse" message="tns:IVentopayMobileService_VpMob_GetAllPersonInformation_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="VpMob_GetApplicationSetting">
+            <wsdl:input wsaw:Action="http://tempuri.org/IVentopayMobileService/VpMob_GetApplicationSetting" message="tns:IVentopayMobileService_VpMob_GetApplicationSetting_InputMessage"/>
+            <wsdl:output wsaw:Action="http://tempuri.org/IVentopayMobileService/VpMob_GetApplicationSettingResponse" message="tns:IVentopayMobileService_VpMob_GetApplicationSetting_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="VpMob_GetAllCustomergroupInformation">
+            <wsdl:input wsaw:Action="http://tempuri.org/IVentopayMobileService/VpMob_GetAllCustomergroupInformation" message="tns:IVentopayMobileService_VpMob_GetAllCustomergroupInformation_InputMessage"/>
+            <wsdl:output wsaw:Action="http://tempuri.org/IVentopayMobileService/VpMob_GetAllCustomergroupInformationResponse" message="tns:IVentopayMobileService_VpMob_GetAllCustomergroupInformation_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="VpMob_ResetPassword">
+            <wsdl:input wsaw:Action="http://tempuri.org/IVentopayMobileService/VpMob_ResetPassword" message="tns:IVentopayMobileService_VpMob_ResetPassword_InputMessage"/>
+            <wsdl:output wsaw:Action="http://tempuri.org/IVentopayMobileService/VpMob_ResetPasswordResponse" message="tns:IVentopayMobileService_VpMob_ResetPassword_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="VpMob_GetNutrientInformation">
+            <wsdl:input wsaw:Action="http://tempuri.org/IVentopayMobileService/VpMob_GetNutrientInformation" message="tns:IVentopayMobileService_VpMob_GetNutrientInformation_InputMessage"/>
+            <wsdl:output wsaw:Action="http://tempuri.org/IVentopayMobileService/VpMob_GetNutrientInformationResponse" message="tns:IVentopayMobileService_VpMob_GetNutrientInformation_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="VpMob_GetBonlinesByPerson">
+            <wsdl:input wsaw:Action="http://tempuri.org/IVentopayMobileService/VpMob_GetBonlinesByPerson" message="tns:IVentopayMobileService_VpMob_GetBonlinesByPerson_InputMessage"/>
+            <wsdl:output wsaw:Action="http://tempuri.org/IVentopayMobileService/VpMob_GetBonlinesByPersonResponse" message="tns:IVentopayMobileService_VpMob_GetBonlinesByPerson_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="VpMob_GetContactInformation">
+            <wsdl:input wsaw:Action="http://tempuri.org/IVentopayMobileService/VpMob_GetContactInformation" message="tns:IVentopayMobileService_VpMob_GetContactInformation_InputMessage"/>
+            <wsdl:output wsaw:Action="http://tempuri.org/IVentopayMobileService/VpMob_GetContactInformationResponse" message="tns:IVentopayMobileService_VpMob_GetContactInformation_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="VpMob_SendMessage">
+            <wsdl:input wsaw:Action="http://tempuri.org/IVentopayMobileService/VpMob_SendMessage" message="tns:IVentopayMobileService_VpMob_SendMessage_InputMessage"/>
+            <wsdl:output wsaw:Action="http://tempuri.org/IVentopayMobileService/VpMob_SendMessageResponse" message="tns:IVentopayMobileService_VpMob_SendMessage_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="VpMob_GetActivityLevels">
+            <wsdl:input wsaw:Action="http://tempuri.org/IVentopayMobileService/VpMob_GetActivityLevels" message="tns:IVentopayMobileService_VpMob_GetActivityLevels_InputMessage"/>
+            <wsdl:output wsaw:Action="http://tempuri.org/IVentopayMobileService/VpMob_GetActivityLevelsResponse" message="tns:IVentopayMobileService_VpMob_GetActivityLevels_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="VpMob_GetTopUps">
+            <wsdl:input wsaw:Action="http://tempuri.org/IVentopayMobileService/VpMob_GetTopUps" message="tns:IVentopayMobileService_VpMob_GetTopUps_InputMessage"/>
+            <wsdl:output wsaw:Action="http://tempuri.org/IVentopayMobileService/VpMob_GetTopUpsResponse" message="tns:IVentopayMobileService_VpMob_GetTopUps_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="VpMob_GetPersonPicture">
+            <wsdl:input wsaw:Action="http://tempuri.org/IVentopayMobileService/VpMob_GetPersonPicture" message="tns:IVentopayMobileService_VpMob_GetPersonPicture_InputMessage"/>
+            <wsdl:output wsaw:Action="http://tempuri.org/IVentopayMobileService/VpMob_GetPersonPictureResponse" message="tns:IVentopayMobileService_VpMob_GetPersonPicture_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="VpMob_SetPersonPicture">
+            <wsdl:input wsaw:Action="http://tempuri.org/IVentopayMobileService/VpMob_SetPersonPicture" message="tns:IVentopayMobileService_VpMob_SetPersonPicture_InputMessage"/>
+            <wsdl:output wsaw:Action="http://tempuri.org/IVentopayMobileService/VpMob_SetPersonPictureResponse" message="tns:IVentopayMobileService_VpMob_SetPersonPicture_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="VpMob_GetAllergens">
+            <wsdl:input wsaw:Action="http://tempuri.org/IVentopayMobileService/VpMob_GetAllergens" message="tns:IVentopayMobileService_VpMob_GetAllergens_InputMessage"/>
+            <wsdl:output wsaw:Action="http://tempuri.org/IVentopayMobileService/VpMob_GetAllergensResponse" message="tns:IVentopayMobileService_VpMob_GetAllergens_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="VpMob_GetAllergenLegend">
+            <wsdl:input wsaw:Action="http://tempuri.org/IVentopayMobileService/VpMob_GetAllergenLegend" message="tns:IVentopayMobileService_VpMob_GetAllergenLegend_InputMessage"/>
+            <wsdl:output wsaw:Action="http://tempuri.org/IVentopayMobileService/VpMob_GetAllergenLegendResponse" message="tns:IVentopayMobileService_VpMob_GetAllergenLegend_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="VpMob_GetFeedbackProgram">
+            <wsdl:input wsaw:Action="http://tempuri.org/IVentopayMobileService/VpMob_GetFeedbackProgram" message="tns:IVentopayMobileService_VpMob_GetFeedbackProgram_InputMessage"/>
+            <wsdl:output wsaw:Action="http://tempuri.org/IVentopayMobileService/VpMob_GetFeedbackProgramResponse" message="tns:IVentopayMobileService_VpMob_GetFeedbackProgram_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="VpMob_SetFeedbackAnswer">
+            <wsdl:input wsaw:Action="http://tempuri.org/IVentopayMobileService/VpMob_SetFeedbackAnswer" message="tns:IVentopayMobileService_VpMob_SetFeedbackAnswer_InputMessage"/>
+            <wsdl:output wsaw:Action="http://tempuri.org/IVentopayMobileService/VpMob_SetFeedbackAnswerResponse" message="tns:IVentopayMobileService_VpMob_SetFeedbackAnswer_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="VpMob_MergeAccounts">
+            <wsdl:input wsaw:Action="http://tempuri.org/IVentopayMobileService/VpMob_MergeAccounts" message="tns:IVentopayMobileService_VpMob_MergeAccounts_InputMessage"/>
+            <wsdl:output wsaw:Action="http://tempuri.org/IVentopayMobileService/VpMob_MergeAccountsResponse" message="tns:IVentopayMobileService_VpMob_MergeAccounts_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="VpMob_ResetPersonToStandardGroup">
+            <wsdl:input wsaw:Action="http://tempuri.org/IVentopayMobileService/VpMob_ResetPersonToStandardGroup" message="tns:IVentopayMobileService_VpMob_ResetPersonToStandardGroup_InputMessage"/>
+            <wsdl:output wsaw:Action="http://tempuri.org/IVentopayMobileService/VpMob_ResetPersonToStandardGroupResponse" message="tns:IVentopayMobileService_VpMob_ResetPersonToStandardGroup_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="VpMob_UpdateBonline">
+            <wsdl:input wsaw:Action="http://tempuri.org/IVentopayMobileService/VpMob_UpdateBonline" message="tns:IVentopayMobileService_VpMob_UpdateBonline_InputMessage"/>
+            <wsdl:output wsaw:Action="http://tempuri.org/IVentopayMobileService/VpMob_UpdateBonlineResponse" message="tns:IVentopayMobileService_VpMob_UpdateBonline_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="VpMob_GetText">
+            <wsdl:input wsaw:Action="http://tempuri.org/IVentopayMobileService/VpMob_GetText" message="tns:IVentopayMobileService_VpMob_GetText_InputMessage"/>
+            <wsdl:output wsaw:Action="http://tempuri.org/IVentopayMobileService/VpMob_GetTextResponse" message="tns:IVentopayMobileService_VpMob_GetText_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="VpMob_ActivateNewsFeed">
+            <wsdl:input wsaw:Action="http://tempuri.org/IVentopayMobileService/VpMob_ActivateNewsFeed" message="tns:IVentopayMobileService_VpMob_ActivateNewsFeed_InputMessage"/>
+            <wsdl:output wsaw:Action="http://tempuri.org/IVentopayMobileService/VpMob_ActivateNewsFeedResponse" message="tns:IVentopayMobileService_VpMob_ActivateNewsFeed_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="VpMob_ChangeTermsAcceptanceState">
+            <wsdl:input wsaw:Action="http://tempuri.org/IVentopayMobileService/VpMob_ChangeTermsAcceptanceState" message="tns:IVentopayMobileService_VpMob_ChangeTermsAcceptanceState_InputMessage"/>
+            <wsdl:output wsaw:Action="http://tempuri.org/IVentopayMobileService/VpMob_ChangeTermsAcceptanceStateResponse" message="tns:IVentopayMobileService_VpMob_ChangeTermsAcceptanceState_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="VpMob_GetLastTermStatesByPerson">
+            <wsdl:input wsaw:Action="http://tempuri.org/IVentopayMobileService/VpMob_GetLastTermStatesByPerson" message="tns:IVentopayMobileService_VpMob_GetLastTermStatesByPerson_InputMessage"/>
+            <wsdl:output wsaw:Action="http://tempuri.org/IVentopayMobileService/VpMob_GetLastTermStatesByPersonResponse" message="tns:IVentopayMobileService_VpMob_GetLastTermStatesByPerson_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="VpMob_LoginByPersonNumber">
+            <wsdl:input wsaw:Action="http://tempuri.org/IVentopayMobileService/VpMob_LoginByPersonNumber" message="tns:IVentopayMobileService_VpMob_LoginByPersonNumber_InputMessage"/>
+            <wsdl:output wsaw:Action="http://tempuri.org/IVentopayMobileService/VpMob_LoginByPersonNumberResponse" message="tns:IVentopayMobileService_VpMob_LoginByPersonNumber_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="VpMob_GetAvailableLanguages">
+            <wsdl:input wsaw:Action="http://tempuri.org/IVentopayMobileService/VpMob_GetAvailableLanguages" message="tns:IVentopayMobileService_VpMob_GetAvailableLanguages_InputMessage"/>
+            <wsdl:output wsaw:Action="http://tempuri.org/IVentopayMobileService/VpMob_GetAvailableLanguagesResponse" message="tns:IVentopayMobileService_VpMob_GetAvailableLanguages_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="VpMob_ResendMailActivation">
+            <wsdl:input wsaw:Action="http://tempuri.org/IVentopayMobileService/VpMob_ResendMailActivation" message="tns:IVentopayMobileService_VpMob_ResendMailActivation_InputMessage"/>
+            <wsdl:output wsaw:Action="http://tempuri.org/IVentopayMobileService/VpMob_ResendMailActivationResponse" message="tns:IVentopayMobileService_VpMob_ResendMailActivation_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="VpMob_LoginByAccountDetail">
+            <wsdl:input wsaw:Action="http://tempuri.org/IVentopayMobileService/VpMob_LoginByAccountDetail" message="tns:IVentopayMobileService_VpMob_LoginByAccountDetail_InputMessage"/>
+            <wsdl:output wsaw:Action="http://tempuri.org/IVentopayMobileService/VpMob_LoginByAccountDetailResponse" message="tns:IVentopayMobileService_VpMob_LoginByAccountDetail_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="VpMob_GetBonlinesByPersonWithExcludedCashpoints">
+            <wsdl:input wsaw:Action="http://tempuri.org/IVentopayMobileService/VpMob_GetBonlinesByPersonWithExcludedCashpoints" message="tns:IVentopayMobileService_VpMob_GetBonlinesByPersonWithExcludedCashpoints_InputMessage"/>
+            <wsdl:output wsaw:Action="http://tempuri.org/IVentopayMobileService/VpMob_GetBonlinesByPersonWithExcludedCashpointsResponse" message="tns:IVentopayMobileService_VpMob_GetBonlinesByPersonWithExcludedCashpoints_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="VpMob_ChangePin">
+            <wsdl:input wsaw:Action="http://tempuri.org/IVentopayMobileService/VpMob_ChangePin" message="tns:IVentopayMobileService_VpMob_ChangePin_InputMessage"/>
+            <wsdl:output wsaw:Action="http://tempuri.org/IVentopayMobileService/VpMob_ChangePinResponse" message="tns:IVentopayMobileService_VpMob_ChangePin_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="VpMob_Log">
+            <wsdl:input wsaw:Action="http://tempuri.org/IVentopayMobileService/VpMob_Log" message="tns:IVentopayMobileService_VpMob_Log_InputMessage"/>
+            <wsdl:output wsaw:Action="http://tempuri.org/IVentopayMobileService/VpMob_LogResponse" message="tns:IVentopayMobileService_VpMob_Log_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="VpMob_PayoutSaldo">
+            <wsdl:input wsaw:Action="http://tempuri.org/IVentopayMobileService/VpMob_PayoutSaldo" message="tns:IVentopayMobileService_VpMob_PayoutSaldo_InputMessage"/>
+            <wsdl:output wsaw:Action="http://tempuri.org/IVentopayMobileService/VpMob_PayoutSaldoResponse" message="tns:IVentopayMobileService_VpMob_PayoutSaldo_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="VpMob_DoPayment">
+            <wsdl:input wsaw:Action="http://tempuri.org/IVentopayMobileService/VpMob_DoPayment" message="tns:IVentopayMobileService_VpMob_DoPayment_InputMessage"/>
+            <wsdl:output wsaw:Action="http://tempuri.org/IVentopayMobileService/VpMob_DoPaymentResponse" message="tns:IVentopayMobileService_VpMob_DoPayment_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="VpMob_DoMobilePayment">
+            <wsdl:input wsaw:Action="http://tempuri.org/IVentopayMobileService/VpMob_DoMobilePayment" message="tns:IVentopayMobileService_VpMob_DoMobilePayment_InputMessage"/>
+            <wsdl:output wsaw:Action="http://tempuri.org/IVentopayMobileService/VpMob_DoMobilePaymentResponse" message="tns:IVentopayMobileService_VpMob_DoMobilePayment_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="VpMob_DoAuthorization">
+            <wsdl:input wsaw:Action="http://tempuri.org/IVentopayMobileService/VpMob_DoAuthorization" message="tns:IVentopayMobileService_VpMob_DoAuthorization_InputMessage"/>
+            <wsdl:output wsaw:Action="http://tempuri.org/IVentopayMobileService/VpMob_DoAuthorizationResponse" message="tns:IVentopayMobileService_VpMob_DoAuthorization_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="VpMob_RegisterUser">
+            <wsdl:input wsaw:Action="http://tempuri.org/IVentopayMobileService/VpMob_RegisterUser" message="tns:IVentopayMobileService_VpMob_RegisterUser_InputMessage"/>
+            <wsdl:output wsaw:Action="http://tempuri.org/IVentopayMobileService/VpMob_RegisterUserResponse" message="tns:IVentopayMobileService_VpMob_RegisterUser_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="VpMob_GetReportData">
+            <wsdl:input wsaw:Action="http://tempuri.org/IVentopayMobileService/VpMob_GetReportData" message="tns:IVentopayMobileService_VpMob_GetReportData_InputMessage"/>
+            <wsdl:output wsaw:Action="http://tempuri.org/IVentopayMobileService/VpMob_GetReportDataResponse" message="tns:IVentopayMobileService_VpMob_GetReportData_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="VpMob_NotifyModule">
+            <wsdl:input wsaw:Action="http://tempuri.org/IVentopayMobileService/VpMob_NotifyModule" message="tns:IVentopayMobileService_VpMob_NotifyModule_InputMessage"/>
+            <wsdl:output wsaw:Action="http://tempuri.org/IVentopayMobileService/VpMob_NotifyModuleResponse" message="tns:IVentopayMobileService_VpMob_NotifyModule_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="VpMob_NotifyNewsfeed">
+            <wsdl:input wsaw:Action="http://tempuri.org/IVentopayMobileService/VpMob_NotifyNewsfeed" message="tns:IVentopayMobileService_VpMob_NotifyNewsfeed_InputMessage"/>
+            <wsdl:output wsaw:Action="http://tempuri.org/IVentopayMobileService/VpMob_NotifyNewsfeedResponse" message="tns:IVentopayMobileService_VpMob_NotifyNewsfeed_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="VpMob_NotifyFeedback">
+            <wsdl:input wsaw:Action="http://tempuri.org/IVentopayMobileService/VpMob_NotifyFeedback" message="tns:IVentopayMobileService_VpMob_NotifyFeedback_InputMessage"/>
+            <wsdl:output wsaw:Action="http://tempuri.org/IVentopayMobileService/VpMob_NotifyFeedbackResponse" message="tns:IVentopayMobileService_VpMob_NotifyFeedback_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="VpMob_GetBleEnabledCashpoints">
+            <wsdl:input wsaw:Action="http://tempuri.org/IVentopayMobileService/VpMob_GetBleEnabledCashpoints" message="tns:IVentopayMobileService_VpMob_GetBleEnabledCashpoints_InputMessage"/>
+            <wsdl:output wsaw:Action="http://tempuri.org/IVentopayMobileService/VpMob_GetBleEnabledCashpointsResponse" message="tns:IVentopayMobileService_VpMob_GetBleEnabledCashpoints_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="VpMob_EnablePayment">
+            <wsdl:input wsaw:Action="http://tempuri.org/IVentopayMobileService/VpMob_EnablePayment" message="tns:IVentopayMobileService_VpMob_EnablePayment_InputMessage"/>
+            <wsdl:output wsaw:Action="http://tempuri.org/IVentopayMobileService/VpMob_EnablePaymentResponse" message="tns:IVentopayMobileService_VpMob_EnablePayment_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="VpMob_CancelPayment">
+            <wsdl:input wsaw:Action="http://tempuri.org/IVentopayMobileService/VpMob_CancelPayment" message="tns:IVentopayMobileService_VpMob_CancelPayment_InputMessage"/>
+            <wsdl:output wsaw:Action="http://tempuri.org/IVentopayMobileService/VpMob_CancelPaymentResponse" message="tns:IVentopayMobileService_VpMob_CancelPayment_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="VpMob_IsPaymentActive">
+            <wsdl:input wsaw:Action="http://tempuri.org/IVentopayMobileService/VpMob_IsPaymentActive" message="tns:IVentopayMobileService_VpMob_IsPaymentActive_InputMessage"/>
+            <wsdl:output wsaw:Action="http://tempuri.org/IVentopayMobileService/VpMob_IsPaymentActiveResponse" message="tns:IVentopayMobileService_VpMob_IsPaymentActive_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="VpMob_GetBonByBonId">
+            <wsdl:input wsaw:Action="http://tempuri.org/IVentopayMobileService/VpMob_GetBonByBonId" message="tns:IVentopayMobileService_VpMob_GetBonByBonId_InputMessage"/>
+            <wsdl:output wsaw:Action="http://tempuri.org/IVentopayMobileService/VpMob_GetBonByBonIdResponse" message="tns:IVentopayMobileService_VpMob_GetBonByBonId_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="VpMob_GetBranding">
+            <wsdl:input wsaw:Action="http://tempuri.org/IVentopayMobileService/VpMob_GetBranding" message="tns:IVentopayMobileService_VpMob_GetBranding_InputMessage"/>
+            <wsdl:output wsaw:Action="http://tempuri.org/IVentopayMobileService/VpMob_GetBrandingResponse" message="tns:IVentopayMobileService_VpMob_GetBranding_OutputMessage"/>
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:portType name="IVentopayTableRoutingService">
+        <wsdl:operation name="GetTableInformation">
+            <wsdl:input wsaw:Action="http://tempuri.org/IVentopayTableRoutingService/GetTableInformation" message="tns:IVentopayTableRoutingService_GetTableInformation_InputMessage"/>
+            <wsdl:output wsaw:Action="http://tempuri.org/IVentopayTableRoutingService/GetTableInformationResponse" message="tns:IVentopayTableRoutingService_GetTableInformation_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="GetTableInformationNew">
+            <wsdl:input wsaw:Action="http://tempuri.org/IVentopayTableRoutingService/GetTableInformationNew" message="tns:IVentopayTableRoutingService_GetTableInformationNew_InputMessage"/>
+            <wsdl:output wsaw:Action="http://tempuri.org/IVentopayTableRoutingService/GetTableInformationNewResponse" message="tns:IVentopayTableRoutingService_GetTableInformationNew_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="GetTableAreas">
+            <wsdl:input wsaw:Action="http://tempuri.org/IVentopayTableRoutingService/GetTableAreas" message="tns:IVentopayTableRoutingService_GetTableAreas_InputMessage"/>
+            <wsdl:output wsaw:Action="http://tempuri.org/IVentopayTableRoutingService/GetTableAreasResponse" message="tns:IVentopayTableRoutingService_GetTableAreas_OutputMessage"/>
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:portType name="IVentopayFileService">
+        <wsdl:operation name="IsAlive">
+            <wsdl:input wsaw:Action="http://tempuri.org/IVentopayService/IsAlive" message="tns:IVentopayFileService_IsAlive_InputMessage"/>
+            <wsdl:output wsaw:Action="http://tempuri.org/IVentopayService/IsAliveResponse" message="tns:IVentopayFileService_IsAlive_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="GetFileListFromDirectory">
+            <wsdl:input wsaw:Action="http://tempuri.org/IVentopayFileService/GetFileListFromDirectory" message="tns:IVentopayFileService_GetFileListFromDirectory_InputMessage"/>
+            <wsdl:output wsaw:Action="http://tempuri.org/IVentopayFileService/GetFileListFromDirectoryResponse" message="tns:IVentopayFileService_GetFileListFromDirectory_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="DownloadFile">
+            <wsdl:input wsaw:Action="http://tempuri.org/IVentopayFileService/DownloadFile" name="DownloadRequest" message="tns:DownloadRequest"/>
+            <wsdl:output wsaw:Action="http://tempuri.org/IVentopayFileService/DownloadFileResponse" name="RemoteFileInfo" message="tns:RemoteFileInfo"/>
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:portType name="IVentopayBonusService">
+        <wsdl:operation name="IsAlive">
+            <wsdl:input wsaw:Action="http://tempuri.org/IVentopayService/IsAlive" message="tns:IVentopayFileService_IsAlive_InputMessage"/>
+            <wsdl:output wsaw:Action="http://tempuri.org/IVentopayService/IsAliveResponse" message="tns:IVentopayFileService_IsAlive_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="GetBonusLevelForCard">
+            <wsdl:input wsaw:Action="http://tempuri.org/IVentopayBonusService/GetBonusLevelForCard" message="tns:IVentopayBonusService_GetBonusLevelForCard_InputMessage"/>
+            <wsdl:output wsaw:Action="http://tempuri.org/IVentopayBonusService/GetBonusLevelForCardResponse" message="tns:IVentopayBonusService_GetBonusLevelForCard_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="GetBonusLevelForCardNew">
+            <wsdl:input wsaw:Action="http://tempuri.org/IVentopayBonusService/GetBonusLevelForCardNew" message="tns:IVentopayBonusService_GetBonusLevelForCardNew_InputMessage"/>
+            <wsdl:output wsaw:Action="http://tempuri.org/IVentopayBonusService/GetBonusLevelForCardNewResponse" message="tns:IVentopayBonusService_GetBonusLevelForCardNew_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="ActivateBonus">
+            <wsdl:input wsaw:Action="http://tempuri.org/IVentopayBonusService/ActivateBonus" message="tns:IVentopayBonusService_ActivateBonus_InputMessage"/>
+            <wsdl:output wsaw:Action="http://tempuri.org/IVentopayBonusService/ActivateBonusResponse" message="tns:IVentopayBonusService_ActivateBonus_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="ActivateBonusNew">
+            <wsdl:input wsaw:Action="http://tempuri.org/IVentopayBonusService/ActivateBonusNew" message="tns:IVentopayBonusService_ActivateBonusNew_InputMessage"/>
+            <wsdl:output wsaw:Action="http://tempuri.org/IVentopayBonusService/ActivateBonusNewResponse" message="tns:IVentopayBonusService_ActivateBonusNew_OutputMessage"/>
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:portType name="IVentopayMMSService">
+        <wsdl:operation name="VpMms_GetFeedbackRating">
+            <wsdl:input wsaw:Action="http://tempuri.org/IVentopayMMSService/VpMms_GetFeedbackRating" message="tns:IVentopayMMSService_VpMms_GetFeedbackRating_InputMessage"/>
+            <wsdl:output wsaw:Action="http://tempuri.org/IVentopayMMSService/VpMms_GetFeedbackRatingResponse" message="tns:IVentopayMMSService_VpMms_GetFeedbackRating_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="VpMms_IsAlive">
+            <wsdl:input wsaw:Action="http://tempuri.org/IVentopayMMSService/VpMms_IsAlive" message="tns:IVentopayMMSService_VpMms_IsAlive_InputMessage"/>
+            <wsdl:output wsaw:Action="http://tempuri.org/IVentopayMMSService/VpMms_IsAliveResponse" message="tns:IVentopayMMSService_VpMms_IsAlive_OutputMessage"/>
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:portType name="IVentopayMasterDataService">
+        <wsdl:operation name="VpMds_UpdatePerson">
+            <wsdl:input wsaw:Action="http://tempuri.org/IVentopayMasterDataService/VpMds_UpdatePerson" message="tns:IVentopayMasterDataService_VpMds_UpdatePerson_InputMessage"/>
+            <wsdl:output wsaw:Action="http://tempuri.org/IVentopayMasterDataService/VpMds_UpdatePersonResponse" message="tns:IVentopayMasterDataService_VpMds_UpdatePerson_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="VpMds_IsAlive">
+            <wsdl:input wsaw:Action="http://tempuri.org/IVentopayMasterDataService/VpMds_IsAlive" message="tns:IVentopayMasterDataService_VpMds_IsAlive_InputMessage"/>
+            <wsdl:output wsaw:Action="http://tempuri.org/IVentopayMasterDataService/VpMds_IsAliveResponse" message="tns:IVentopayMasterDataService_VpMds_IsAlive_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="VpMds_GetMonthSums">
+            <wsdl:input wsaw:Action="http://tempuri.org/IVentopayMasterDataService/VpMds_GetMonthSums" message="tns:IVentopayMasterDataService_VpMds_GetMonthSums_InputMessage"/>
+            <wsdl:output wsaw:Action="http://tempuri.org/IVentopayMasterDataService/VpMds_GetMonthSumsResponse" message="tns:IVentopayMasterDataService_VpMds_GetMonthSums_OutputMessage"/>
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:binding name="BasicHttpBinding_IVentopayCardService" type="tns:IVentopayCardService">
+        <soap:binding transport="http://schemas.xmlsoap.org/soap/http"/>
+        <wsdl:operation name="CardTopUp">
+            <soap:operation soapAction="http://tempuri.org/IVentopayCardService/CardTopUp" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="CardTopUpNew">
+            <soap:operation soapAction="http://tempuri.org/IVentopayCardService/CardTopUpNew" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GetBonlinesByBonNumber">
+            <soap:operation soapAction="http://tempuri.org/IVentopayCardService/GetBonlinesByBonNumber" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GetBonsByPerson">
+            <soap:operation soapAction="http://tempuri.org/IVentopayCardService/GetBonsByPerson" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GetLimtsByPerson">
+            <soap:operation soapAction="http://tempuri.org/IVentopayCardService/GetLimtsByPerson" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:binding name="WSHttpBinding_IVentopayMobileService" type="tns:IVentopayMobileService">
+        <wsp:PolicyReference URI="#WSHttpBinding_IVentopayMobileService_policy"/>
+        <soap12:binding transport="http://schemas.xmlsoap.org/soap/http"/>
+        <wsdl:operation name="VpMob_CardTopUp">
+            <soap12:operation soapAction="http://tempuri.org/IVentopayMobileService/VpMob_CardTopUp" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="VpMob_GetBonlinesByBonNumber">
+            <soap12:operation soapAction="http://tempuri.org/IVentopayMobileService/VpMob_GetBonlinesByBonNumber" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="VpMob_GetBonsByPerson">
+            <soap12:operation soapAction="http://tempuri.org/IVentopayMobileService/VpMob_GetBonsByPerson" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="VpMob_GetLastBonByPerson">
+            <soap12:operation soapAction="http://tempuri.org/IVentopayMobileService/VpMob_GetLastBonByPerson" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="VpMob_GetLimtsByCard">
+            <soap12:operation soapAction="http://tempuri.org/IVentopayMobileService/VpMob_GetLimtsByCard" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="VpMob_GetBonusLevelForCard">
+            <soap12:operation soapAction="http://tempuri.org/IVentopayMobileService/VpMob_GetBonusLevelForCard" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="VpMob_ActivateBonus">
+            <soap12:operation soapAction="http://tempuri.org/IVentopayMobileService/VpMob_ActivateBonus" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="VpMob_GetRestaurant">
+            <soap12:operation soapAction="http://tempuri.org/IVentopayMobileService/VpMob_GetRestaurant" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="VpMob_GetNewsFeed">
+            <soap12:operation soapAction="http://tempuri.org/IVentopayMobileService/VpMob_GetNewsFeed" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="VpMob_UpdatePersonData">
+            <soap12:operation soapAction="http://tempuri.org/IVentopayMobileService/VpMob_UpdatePersonData" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="VpMob_GetPersonInformation">
+            <soap12:operation soapAction="http://tempuri.org/IVentopayMobileService/VpMob_GetPersonInformation" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="VpMob_Login">
+            <soap12:operation soapAction="http://tempuri.org/IVentopayMobileService/VpMob_Login" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="VpMob_ChangePassword">
+            <soap12:operation soapAction="http://tempuri.org/IVentopayMobileService/VpMob_ChangePassword" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="VpMob_GetMenu">
+            <soap12:operation soapAction="http://tempuri.org/IVentopayMobileService/VpMob_GetMenu" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="VpMob_IsAlive">
+            <soap12:operation soapAction="http://tempuri.org/IVentopayMobileService/VpMob_IsAlive" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="VpMob_LoginByCardNumber">
+            <soap12:operation soapAction="http://tempuri.org/IVentopayMobileService/VpMob_LoginByCardNumber" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="VpMob_GetAllPersonInformation">
+            <soap12:operation soapAction="http://tempuri.org/IVentopayMobileService/VpMob_GetAllPersonInformation" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="VpMob_GetApplicationSetting">
+            <soap12:operation soapAction="http://tempuri.org/IVentopayMobileService/VpMob_GetApplicationSetting" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="VpMob_GetAllCustomergroupInformation">
+            <soap12:operation soapAction="http://tempuri.org/IVentopayMobileService/VpMob_GetAllCustomergroupInformation" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="VpMob_ResetPassword">
+            <soap12:operation soapAction="http://tempuri.org/IVentopayMobileService/VpMob_ResetPassword" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="VpMob_GetNutrientInformation">
+            <soap12:operation soapAction="http://tempuri.org/IVentopayMobileService/VpMob_GetNutrientInformation" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="VpMob_GetBonlinesByPerson">
+            <soap12:operation soapAction="http://tempuri.org/IVentopayMobileService/VpMob_GetBonlinesByPerson" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="VpMob_GetContactInformation">
+            <soap12:operation soapAction="http://tempuri.org/IVentopayMobileService/VpMob_GetContactInformation" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="VpMob_SendMessage">
+            <soap12:operation soapAction="http://tempuri.org/IVentopayMobileService/VpMob_SendMessage" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="VpMob_GetActivityLevels">
+            <soap12:operation soapAction="http://tempuri.org/IVentopayMobileService/VpMob_GetActivityLevels" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="VpMob_GetTopUps">
+            <soap12:operation soapAction="http://tempuri.org/IVentopayMobileService/VpMob_GetTopUps" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="VpMob_GetPersonPicture">
+            <soap12:operation soapAction="http://tempuri.org/IVentopayMobileService/VpMob_GetPersonPicture" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="VpMob_SetPersonPicture">
+            <soap12:operation soapAction="http://tempuri.org/IVentopayMobileService/VpMob_SetPersonPicture" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="VpMob_GetAllergens">
+            <soap12:operation soapAction="http://tempuri.org/IVentopayMobileService/VpMob_GetAllergens" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="VpMob_GetAllergenLegend">
+            <soap12:operation soapAction="http://tempuri.org/IVentopayMobileService/VpMob_GetAllergenLegend" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="VpMob_GetFeedbackProgram">
+            <soap12:operation soapAction="http://tempuri.org/IVentopayMobileService/VpMob_GetFeedbackProgram" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="VpMob_SetFeedbackAnswer">
+            <soap12:operation soapAction="http://tempuri.org/IVentopayMobileService/VpMob_SetFeedbackAnswer" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="VpMob_MergeAccounts">
+            <soap12:operation soapAction="http://tempuri.org/IVentopayMobileService/VpMob_MergeAccounts" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="VpMob_ResetPersonToStandardGroup">
+            <soap12:operation soapAction="http://tempuri.org/IVentopayMobileService/VpMob_ResetPersonToStandardGroup" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="VpMob_UpdateBonline">
+            <soap12:operation soapAction="http://tempuri.org/IVentopayMobileService/VpMob_UpdateBonline" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="VpMob_GetText">
+            <soap12:operation soapAction="http://tempuri.org/IVentopayMobileService/VpMob_GetText" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="VpMob_ActivateNewsFeed">
+            <soap12:operation soapAction="http://tempuri.org/IVentopayMobileService/VpMob_ActivateNewsFeed" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="VpMob_ChangeTermsAcceptanceState">
+            <soap12:operation soapAction="http://tempuri.org/IVentopayMobileService/VpMob_ChangeTermsAcceptanceState" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="VpMob_GetLastTermStatesByPerson">
+            <soap12:operation soapAction="http://tempuri.org/IVentopayMobileService/VpMob_GetLastTermStatesByPerson" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="VpMob_LoginByPersonNumber">
+            <soap12:operation soapAction="http://tempuri.org/IVentopayMobileService/VpMob_LoginByPersonNumber" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="VpMob_GetAvailableLanguages">
+            <soap12:operation soapAction="http://tempuri.org/IVentopayMobileService/VpMob_GetAvailableLanguages" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="VpMob_ResendMailActivation">
+            <soap12:operation soapAction="http://tempuri.org/IVentopayMobileService/VpMob_ResendMailActivation" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="VpMob_LoginByAccountDetail">
+            <soap12:operation soapAction="http://tempuri.org/IVentopayMobileService/VpMob_LoginByAccountDetail" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="VpMob_GetBonlinesByPersonWithExcludedCashpoints">
+            <soap12:operation soapAction="http://tempuri.org/IVentopayMobileService/VpMob_GetBonlinesByPersonWithExcludedCashpoints" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="VpMob_ChangePin">
+            <soap12:operation soapAction="http://tempuri.org/IVentopayMobileService/VpMob_ChangePin" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="VpMob_Log">
+            <soap12:operation soapAction="http://tempuri.org/IVentopayMobileService/VpMob_Log" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="VpMob_PayoutSaldo">
+            <soap12:operation soapAction="http://tempuri.org/IVentopayMobileService/VpMob_PayoutSaldo" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="VpMob_DoPayment">
+            <soap12:operation soapAction="http://tempuri.org/IVentopayMobileService/VpMob_DoPayment" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="VpMob_DoMobilePayment">
+            <soap12:operation soapAction="http://tempuri.org/IVentopayMobileService/VpMob_DoMobilePayment" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="VpMob_DoAuthorization">
+            <soap12:operation soapAction="http://tempuri.org/IVentopayMobileService/VpMob_DoAuthorization" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="VpMob_RegisterUser">
+            <soap12:operation soapAction="http://tempuri.org/IVentopayMobileService/VpMob_RegisterUser" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="VpMob_GetReportData">
+            <soap12:operation soapAction="http://tempuri.org/IVentopayMobileService/VpMob_GetReportData" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="VpMob_NotifyModule">
+            <soap12:operation soapAction="http://tempuri.org/IVentopayMobileService/VpMob_NotifyModule" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="VpMob_NotifyNewsfeed">
+            <soap12:operation soapAction="http://tempuri.org/IVentopayMobileService/VpMob_NotifyNewsfeed" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="VpMob_NotifyFeedback">
+            <soap12:operation soapAction="http://tempuri.org/IVentopayMobileService/VpMob_NotifyFeedback" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="VpMob_GetBleEnabledCashpoints">
+            <soap12:operation soapAction="http://tempuri.org/IVentopayMobileService/VpMob_GetBleEnabledCashpoints" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="VpMob_EnablePayment">
+            <soap12:operation soapAction="http://tempuri.org/IVentopayMobileService/VpMob_EnablePayment" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="VpMob_CancelPayment">
+            <soap12:operation soapAction="http://tempuri.org/IVentopayMobileService/VpMob_CancelPayment" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="VpMob_IsPaymentActive">
+            <soap12:operation soapAction="http://tempuri.org/IVentopayMobileService/VpMob_IsPaymentActive" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="VpMob_GetBonByBonId">
+            <soap12:operation soapAction="http://tempuri.org/IVentopayMobileService/VpMob_GetBonByBonId" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="VpMob_GetBranding">
+            <soap12:operation soapAction="http://tempuri.org/IVentopayMobileService/VpMob_GetBranding" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:binding name="BasicHttpBinding_IVentopayMobileService" type="tns:IVentopayMobileService">
+        <soap:binding transport="http://schemas.xmlsoap.org/soap/http"/>
+        <wsdl:operation name="VpMob_CardTopUp">
+            <soap:operation soapAction="http://tempuri.org/IVentopayMobileService/VpMob_CardTopUp" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="VpMob_GetBonlinesByBonNumber">
+            <soap:operation soapAction="http://tempuri.org/IVentopayMobileService/VpMob_GetBonlinesByBonNumber" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="VpMob_GetBonsByPerson">
+            <soap:operation soapAction="http://tempuri.org/IVentopayMobileService/VpMob_GetBonsByPerson" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="VpMob_GetLastBonByPerson">
+            <soap:operation soapAction="http://tempuri.org/IVentopayMobileService/VpMob_GetLastBonByPerson" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="VpMob_GetLimtsByCard">
+            <soap:operation soapAction="http://tempuri.org/IVentopayMobileService/VpMob_GetLimtsByCard" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="VpMob_GetBonusLevelForCard">
+            <soap:operation soapAction="http://tempuri.org/IVentopayMobileService/VpMob_GetBonusLevelForCard" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="VpMob_ActivateBonus">
+            <soap:operation soapAction="http://tempuri.org/IVentopayMobileService/VpMob_ActivateBonus" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="VpMob_GetRestaurant">
+            <soap:operation soapAction="http://tempuri.org/IVentopayMobileService/VpMob_GetRestaurant" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="VpMob_GetNewsFeed">
+            <soap:operation soapAction="http://tempuri.org/IVentopayMobileService/VpMob_GetNewsFeed" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="VpMob_UpdatePersonData">
+            <soap:operation soapAction="http://tempuri.org/IVentopayMobileService/VpMob_UpdatePersonData" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="VpMob_GetPersonInformation">
+            <soap:operation soapAction="http://tempuri.org/IVentopayMobileService/VpMob_GetPersonInformation" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="VpMob_Login">
+            <soap:operation soapAction="http://tempuri.org/IVentopayMobileService/VpMob_Login" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="VpMob_ChangePassword">
+            <soap:operation soapAction="http://tempuri.org/IVentopayMobileService/VpMob_ChangePassword" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="VpMob_GetMenu">
+            <soap:operation soapAction="http://tempuri.org/IVentopayMobileService/VpMob_GetMenu" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="VpMob_IsAlive">
+            <soap:operation soapAction="http://tempuri.org/IVentopayMobileService/VpMob_IsAlive" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="VpMob_LoginByCardNumber">
+            <soap:operation soapAction="http://tempuri.org/IVentopayMobileService/VpMob_LoginByCardNumber" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="VpMob_GetAllPersonInformation">
+            <soap:operation soapAction="http://tempuri.org/IVentopayMobileService/VpMob_GetAllPersonInformation" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="VpMob_GetApplicationSetting">
+            <soap:operation soapAction="http://tempuri.org/IVentopayMobileService/VpMob_GetApplicationSetting" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="VpMob_GetAllCustomergroupInformation">
+            <soap:operation soapAction="http://tempuri.org/IVentopayMobileService/VpMob_GetAllCustomergroupInformation" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="VpMob_ResetPassword">
+            <soap:operation soapAction="http://tempuri.org/IVentopayMobileService/VpMob_ResetPassword" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="VpMob_GetNutrientInformation">
+            <soap:operation soapAction="http://tempuri.org/IVentopayMobileService/VpMob_GetNutrientInformation" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="VpMob_GetBonlinesByPerson">
+            <soap:operation soapAction="http://tempuri.org/IVentopayMobileService/VpMob_GetBonlinesByPerson" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="VpMob_GetContactInformation">
+            <soap:operation soapAction="http://tempuri.org/IVentopayMobileService/VpMob_GetContactInformation" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="VpMob_SendMessage">
+            <soap:operation soapAction="http://tempuri.org/IVentopayMobileService/VpMob_SendMessage" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="VpMob_GetActivityLevels">
+            <soap:operation soapAction="http://tempuri.org/IVentopayMobileService/VpMob_GetActivityLevels" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="VpMob_GetTopUps">
+            <soap:operation soapAction="http://tempuri.org/IVentopayMobileService/VpMob_GetTopUps" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="VpMob_GetPersonPicture">
+            <soap:operation soapAction="http://tempuri.org/IVentopayMobileService/VpMob_GetPersonPicture" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="VpMob_SetPersonPicture">
+            <soap:operation soapAction="http://tempuri.org/IVentopayMobileService/VpMob_SetPersonPicture" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="VpMob_GetAllergens">
+            <soap:operation soapAction="http://tempuri.org/IVentopayMobileService/VpMob_GetAllergens" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="VpMob_GetAllergenLegend">
+            <soap:operation soapAction="http://tempuri.org/IVentopayMobileService/VpMob_GetAllergenLegend" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="VpMob_GetFeedbackProgram">
+            <soap:operation soapAction="http://tempuri.org/IVentopayMobileService/VpMob_GetFeedbackProgram" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="VpMob_SetFeedbackAnswer">
+            <soap:operation soapAction="http://tempuri.org/IVentopayMobileService/VpMob_SetFeedbackAnswer" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="VpMob_MergeAccounts">
+            <soap:operation soapAction="http://tempuri.org/IVentopayMobileService/VpMob_MergeAccounts" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="VpMob_ResetPersonToStandardGroup">
+            <soap:operation soapAction="http://tempuri.org/IVentopayMobileService/VpMob_ResetPersonToStandardGroup" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="VpMob_UpdateBonline">
+            <soap:operation soapAction="http://tempuri.org/IVentopayMobileService/VpMob_UpdateBonline" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="VpMob_GetText">
+            <soap:operation soapAction="http://tempuri.org/IVentopayMobileService/VpMob_GetText" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="VpMob_ActivateNewsFeed">
+            <soap:operation soapAction="http://tempuri.org/IVentopayMobileService/VpMob_ActivateNewsFeed" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="VpMob_ChangeTermsAcceptanceState">
+            <soap:operation soapAction="http://tempuri.org/IVentopayMobileService/VpMob_ChangeTermsAcceptanceState" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="VpMob_GetLastTermStatesByPerson">
+            <soap:operation soapAction="http://tempuri.org/IVentopayMobileService/VpMob_GetLastTermStatesByPerson" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="VpMob_LoginByPersonNumber">
+            <soap:operation soapAction="http://tempuri.org/IVentopayMobileService/VpMob_LoginByPersonNumber" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="VpMob_GetAvailableLanguages">
+            <soap:operation soapAction="http://tempuri.org/IVentopayMobileService/VpMob_GetAvailableLanguages" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="VpMob_ResendMailActivation">
+            <soap:operation soapAction="http://tempuri.org/IVentopayMobileService/VpMob_ResendMailActivation" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="VpMob_LoginByAccountDetail">
+            <soap:operation soapAction="http://tempuri.org/IVentopayMobileService/VpMob_LoginByAccountDetail" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="VpMob_GetBonlinesByPersonWithExcludedCashpoints">
+            <soap:operation soapAction="http://tempuri.org/IVentopayMobileService/VpMob_GetBonlinesByPersonWithExcludedCashpoints" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="VpMob_ChangePin">
+            <soap:operation soapAction="http://tempuri.org/IVentopayMobileService/VpMob_ChangePin" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="VpMob_Log">
+            <soap:operation soapAction="http://tempuri.org/IVentopayMobileService/VpMob_Log" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="VpMob_PayoutSaldo">
+            <soap:operation soapAction="http://tempuri.org/IVentopayMobileService/VpMob_PayoutSaldo" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="VpMob_DoPayment">
+            <soap:operation soapAction="http://tempuri.org/IVentopayMobileService/VpMob_DoPayment" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="VpMob_DoMobilePayment">
+            <soap:operation soapAction="http://tempuri.org/IVentopayMobileService/VpMob_DoMobilePayment" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="VpMob_DoAuthorization">
+            <soap:operation soapAction="http://tempuri.org/IVentopayMobileService/VpMob_DoAuthorization" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="VpMob_RegisterUser">
+            <soap:operation soapAction="http://tempuri.org/IVentopayMobileService/VpMob_RegisterUser" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="VpMob_GetReportData">
+            <soap:operation soapAction="http://tempuri.org/IVentopayMobileService/VpMob_GetReportData" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="VpMob_NotifyModule">
+            <soap:operation soapAction="http://tempuri.org/IVentopayMobileService/VpMob_NotifyModule" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="VpMob_NotifyNewsfeed">
+            <soap:operation soapAction="http://tempuri.org/IVentopayMobileService/VpMob_NotifyNewsfeed" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="VpMob_NotifyFeedback">
+            <soap:operation soapAction="http://tempuri.org/IVentopayMobileService/VpMob_NotifyFeedback" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="VpMob_GetBleEnabledCashpoints">
+            <soap:operation soapAction="http://tempuri.org/IVentopayMobileService/VpMob_GetBleEnabledCashpoints" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="VpMob_EnablePayment">
+            <soap:operation soapAction="http://tempuri.org/IVentopayMobileService/VpMob_EnablePayment" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="VpMob_CancelPayment">
+            <soap:operation soapAction="http://tempuri.org/IVentopayMobileService/VpMob_CancelPayment" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="VpMob_IsPaymentActive">
+            <soap:operation soapAction="http://tempuri.org/IVentopayMobileService/VpMob_IsPaymentActive" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="VpMob_GetBonByBonId">
+            <soap:operation soapAction="http://tempuri.org/IVentopayMobileService/VpMob_GetBonByBonId" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="VpMob_GetBranding">
+            <soap:operation soapAction="http://tempuri.org/IVentopayMobileService/VpMob_GetBranding" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:binding name="WSHttpBinding_IVentopayTableRoutingService" type="tns:IVentopayTableRoutingService">
+        <wsp:PolicyReference URI="#WSHttpBinding_IVentopayTableRoutingService_policy"/>
+        <soap12:binding transport="http://schemas.xmlsoap.org/soap/http"/>
+        <wsdl:operation name="GetTableInformation">
+            <soap12:operation soapAction="http://tempuri.org/IVentopayTableRoutingService/GetTableInformation" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GetTableInformationNew">
+            <soap12:operation soapAction="http://tempuri.org/IVentopayTableRoutingService/GetTableInformationNew" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GetTableAreas">
+            <soap12:operation soapAction="http://tempuri.org/IVentopayTableRoutingService/GetTableAreas" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:binding name="BasicHttpBinding_IVentopayFileService" type="tns:IVentopayFileService">
+        <soap:binding transport="http://schemas.xmlsoap.org/soap/http"/>
+        <wsdl:operation name="IsAlive">
+            <soap:operation soapAction="http://tempuri.org/IVentopayService/IsAlive" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GetFileListFromDirectory">
+            <soap:operation soapAction="http://tempuri.org/IVentopayFileService/GetFileListFromDirectory" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="DownloadFile">
+            <soap:operation soapAction="http://tempuri.org/IVentopayFileService/DownloadFile" style="document"/>
+            <wsdl:input name="DownloadRequest">
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="RemoteFileInfo">
+                <soap:header message="tns:RemoteFileInfo_Headers" part="FileName" use="literal"/>
+                <soap:header message="tns:RemoteFileInfo_Headers" part="Length" use="literal"/>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:binding name="BasicHttpBinding_IVentopayBonusService" type="tns:IVentopayBonusService">
+        <soap:binding transport="http://schemas.xmlsoap.org/soap/http"/>
+        <wsdl:operation name="IsAlive">
+            <soap:operation soapAction="http://tempuri.org/IVentopayService/IsAlive" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GetBonusLevelForCard">
+            <soap:operation soapAction="http://tempuri.org/IVentopayBonusService/GetBonusLevelForCard" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GetBonusLevelForCardNew">
+            <soap:operation soapAction="http://tempuri.org/IVentopayBonusService/GetBonusLevelForCardNew" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="ActivateBonus">
+            <soap:operation soapAction="http://tempuri.org/IVentopayBonusService/ActivateBonus" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="ActivateBonusNew">
+            <soap:operation soapAction="http://tempuri.org/IVentopayBonusService/ActivateBonusNew" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:binding name="BasicHttpBinding_IVentopayMMSService" type="tns:IVentopayMMSService">
+        <soap:binding transport="http://schemas.xmlsoap.org/soap/http"/>
+        <wsdl:operation name="VpMms_GetFeedbackRating">
+            <soap:operation soapAction="http://tempuri.org/IVentopayMMSService/VpMms_GetFeedbackRating" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="VpMms_IsAlive">
+            <soap:operation soapAction="http://tempuri.org/IVentopayMMSService/VpMms_IsAlive" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:binding name="WSHttpBinding_IVentopayMMSService" type="tns:IVentopayMMSService">
+        <wsp:PolicyReference URI="#WSHttpBinding_IVentopayMMSService_policy"/>
+        <soap12:binding transport="http://schemas.xmlsoap.org/soap/http"/>
+        <wsdl:operation name="VpMms_GetFeedbackRating">
+            <soap12:operation soapAction="http://tempuri.org/IVentopayMMSService/VpMms_GetFeedbackRating" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="VpMms_IsAlive">
+            <soap12:operation soapAction="http://tempuri.org/IVentopayMMSService/VpMms_IsAlive" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:binding name="BasicHttpBinding_IVentopayMasterDataService" type="tns:IVentopayMasterDataService">
+        <soap:binding transport="http://schemas.xmlsoap.org/soap/http"/>
+        <wsdl:operation name="VpMds_UpdatePerson">
+            <soap:operation soapAction="http://tempuri.org/IVentopayMasterDataService/VpMds_UpdatePerson" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="VpMds_IsAlive">
+            <soap:operation soapAction="http://tempuri.org/IVentopayMasterDataService/VpMds_IsAlive" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="VpMds_GetMonthSums">
+            <soap:operation soapAction="http://tempuri.org/IVentopayMasterDataService/VpMds_GetMonthSums" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:binding name="WSHttpBinding_IVentopayMasterDataService" type="tns:IVentopayMasterDataService">
+        <wsp:PolicyReference URI="#WSHttpBinding_IVentopayMasterDataService_policy"/>
+        <soap12:binding transport="http://schemas.xmlsoap.org/soap/http"/>
+        <wsdl:operation name="VpMds_UpdatePerson">
+            <soap12:operation soapAction="http://tempuri.org/IVentopayMasterDataService/VpMds_UpdatePerson" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="VpMds_IsAlive">
+            <soap12:operation soapAction="http://tempuri.org/IVentopayMasterDataService/VpMds_IsAlive" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="VpMds_GetMonthSums">
+            <soap12:operation soapAction="http://tempuri.org/IVentopayMasterDataService/VpMds_GetMonthSums" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:service name="ventopayappservice">
+        <wsdl:port name="BasicHttpBinding_IVentopayCardService" binding="tns:BasicHttpBinding_IVentopayCardService">
+            <soap:address location="http://appservice.ventopay.com:8070/ventopayappservice.svc/basic"/>
+        </wsdl:port>
+        <wsdl:port name="WSHttpBinding_IVentopayMobileService" binding="tns:WSHttpBinding_IVentopayMobileService">
+            <soap12:address location="https://appservice.ventopay.com/ventopayappservice.svc/basicenc"/>
+            <wsa10:EndpointReference>
+                <wsa10:Address>https://appservice.ventopay.com/ventopayappservice.svc/basicenc</wsa10:Address>
+            </wsa10:EndpointReference>
+        </wsdl:port>
+        <wsdl:port name="BasicHttpBinding_IVentopayMobileService" binding="tns:BasicHttpBinding_IVentopayMobileService">
+            <soap:address location="http://appservice.ventopay.com:8070/ventopayappservice.svc/basicmobile"/>
+        </wsdl:port>
+        <wsdl:port name="WSHttpBinding_IVentopayTableRoutingService" binding="tns:WSHttpBinding_IVentopayTableRoutingService">
+            <soap12:address location="https://appservice.ventopay.com/ventopayappservice.svc/wstrs"/>
+            <wsa10:EndpointReference>
+                <wsa10:Address>https://appservice.ventopay.com/ventopayappservice.svc/wstrs</wsa10:Address>
+            </wsa10:EndpointReference>
+        </wsdl:port>
+        <wsdl:port name="BasicHttpBinding_IVentopayFileService" binding="tns:BasicHttpBinding_IVentopayFileService">
+            <soap:address location="http://appservice.ventopay.com:8070/ventopayappservice.svc/basicfile"/>
+        </wsdl:port>
+        <wsdl:port name="BasicHttpBinding_IVentopayBonusService" binding="tns:BasicHttpBinding_IVentopayBonusService">
+            <soap:address location="http://appservice.ventopay.com:8070/ventopayappservice.svc/basicbonus"/>
+        </wsdl:port>
+        <wsdl:port name="BasicHttpBinding_IVentopayMMSService" binding="tns:BasicHttpBinding_IVentopayMMSService">
+            <soap:address location="http://appservice.ventopay.com:8070/ventopayappservice.svc/basicmms"/>
+        </wsdl:port>
+        <wsdl:port name="WSHttpBinding_IVentopayMMSService" binding="tns:WSHttpBinding_IVentopayMMSService">
+            <soap12:address location="https://appservice.ventopay.com/ventopayappservice.svc/wsmms"/>
+            <wsa10:EndpointReference>
+                <wsa10:Address>https://appservice.ventopay.com/ventopayappservice.svc/wsmms</wsa10:Address>
+            </wsa10:EndpointReference>
+        </wsdl:port>
+        <wsdl:port name="BasicHttpBinding_IVentopayMasterDataService" binding="tns:BasicHttpBinding_IVentopayMasterDataService">
+            <soap:address location="http://appservice.ventopay.com:8070/ventopayappservice.svc/basicmasterdata"/>
+        </wsdl:port>
+        <wsdl:port name="WSHttpBinding_IVentopayMasterDataService" binding="tns:WSHttpBinding_IVentopayMasterDataService">
+            <soap12:address location="https://appservice.ventopay.com/ventopayappservice.svc/wsmasterdata"/>
+            <wsa10:EndpointReference>
+                <wsa10:Address>https://appservice.ventopay.com/ventopayappservice.svc/wsmasterdata</wsa10:Address>
+            </wsa10:EndpointReference>
+        </wsdl:port>
+    </wsdl:service>
+</wsdl:definitions>
